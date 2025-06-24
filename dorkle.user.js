@@ -3,7 +3,7 @@
 // @description Remake the sporcle search function into a responsive SPA using Preact
 // @namespace   ViolentMonkey Scripts
 // @match       https://www.sporcle.com/search/*
-// @version     992.0.0
+// @version     74.0.0
 // @author      -
 // @updateURL   https://joooood.github.io/sporcle/dorkle.user.js
 // @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
@@ -690,3 +690,4 @@ if (document.readyState === "loading") {
 } else {
   mount();
 }
+//# sourceMappingURL=dorkle.user.js.map
