@@ -10,6 +10,11 @@ function mount() {
 
     document.body.prepend(container);
   }
+  const style = document.createElement("link");
+  style.rel = "stylesheet";
+  style.href =
+    "https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css";
+  document.head.appendChild(style);
 
   render(<Home />, container!);
 }
