@@ -1,5 +1,5 @@
 import { render } from "preact";
-import { Home } from "./app/page";
+import { App } from "@/pages";
 import "./index.css";
 
 function mount() {
@@ -13,10 +13,10 @@ function mount() {
   const style = document.createElement("link");
   style.rel = "stylesheet";
   style.href =
-    "https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css";
+    "https://cdn.tailwindcss.com";
   document.head.appendChild(style);
 
-  render(<Home />, container!);
+  render(<App />, container!);
 }
 
 if (document.readyState === "loading") {

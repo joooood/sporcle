@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import type { __Quiz__ } from "../../types/quiz";
-import { QuizCard } from "./quiz-card";
+import type { __Quiz__ } from "@/types/quiz";
+import { QuizCard } from "@/components/quizzes/QuizCard";
 
 function QuizList() {
   const [quizzes, setQuizzes] = useState<__Quiz__[]>([]);

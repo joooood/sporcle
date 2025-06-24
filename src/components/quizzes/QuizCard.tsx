@@ -1,14 +1,16 @@
-import type { __Quiz__ } from "../../types/quiz";
-import { CategoryBadge } from "./category-badge";
+import type { __Quiz__ } from "@/types/quiz";
+import { CategoryBadge } from "@/components/quizzes/CategoryBadge";
 
-function QuizCard({quiz}: {quiz: __Quiz__}) {
+function QuizCard({ quiz }: { quiz: __Quiz__ }) {
   return (
     <div className="quiz-card flex flex-col gap-1">
       <div className="top flex gap-1">
-        <a className="title">{quiz.title}</a>
+        <a className="title" href={quiz.href}>
+          {quiz.title}
+        </a>
         <div className="meta flex gap-1">
           <div className="author">
-            by 
+            by
             <a href={quiz.author.href} className="underline">
               {quiz.author.name}
             </a>
@@ -21,4 +23,4 @@ function QuizCard({quiz}: {quiz: __Quiz__}) {
   );
 }
 
-export { QuizCard }
+export { QuizCard };

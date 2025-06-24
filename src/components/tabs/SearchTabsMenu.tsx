@@ -1,6 +1,6 @@
-import { useSearch } from "../../hooks/useSearch";
-import type { __Tab__ } from "../../types/tab";
-import { TabsButton } from "./tabs-button";
+import { useSearch } from "@/hooks/useSearch";
+import type { __Tab__ } from "@/types/tab";
+import { TabsButton } from "@/components/tabs/SearchTabsButton";
 
 function SearchTabsMenu() {
   const { selected, setSelected, tabs } = useSearch();

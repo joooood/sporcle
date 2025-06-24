@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import { createContext, type ComponentChildren } from "preact";
-import { type __Tab__ } from "../types/tab";
+import { type __Tab__ } from "@/types/tab";
 
 type SearchContextType = {
   selected: __Tab__;
