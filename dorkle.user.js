@@ -3,8 +3,10 @@
 // @description Remake the sporcle search function into a responsive SPA using Preact
 // @namespace   ViolentMonkey Scripts
 // @match       https://www.sporcle.com/search/*
-// @version     1.0.0
+// @version     95.0.0
 // @author      -
+// @updateURL   https://joooood.github.io/sporcle/dorkle.user.js
+// @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
 // @grant       none
 // ==/UserScript==
 var n, l$2, u$2, i$1, r$1, o$1, e$1, f$2, c$2, s$2, a$2, h$2, p$2 = {}, v$2 = [], y$2 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$2 = Array.isArray;
