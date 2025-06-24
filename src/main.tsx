@@ -10,10 +10,8 @@ function mount() {
 
     document.body.prepend(container);
   }
-  const style = document.createElement("link");
-  style.rel = "stylesheet";
-  style.href =
-    "https://cdn.tailwindcss.com";
+  const style = document.createElement("script");
+  style.src = "https://cdn.tailwindcss.com";
   document.head.appendChild(style);
 
   render(<App />, container!);
