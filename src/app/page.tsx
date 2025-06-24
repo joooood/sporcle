@@ -1,9 +1,10 @@
-import { useState } from 'preact/hooks'
-import { QuizList } from '../components/quizzes/quiz-list'
+import { SearchTabs } from "../components/tabs/SearchTabs";
+import { SearchProvider } from "../contexts/SearchContext";
 
 export function Home() {
-
   return (
-    <QuizList />
-  )
+    <SearchProvider>
+      <SearchTabs />
+    </SearchProvider>
+  );
 }
