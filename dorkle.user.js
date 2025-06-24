@@ -445,4 +445,17 @@ function QuizList() {
 function Home() {
   return /* @__PURE__ */ u$1(QuizList, {});
 }
-E(/* @__PURE__ */ u$1(Home, {}), document.getElementById("home"));
+function mount() {
+  let container = document.getElementById("home");
+  if (!container) {
+    container = document.createElement("main");
+    container.id = "search";
+    document.body.prepend(container);
+  }
+  E(/* @__PURE__ */ u$1(Home, {}), container);
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", mount);
+} else {
+  mount();
+}
