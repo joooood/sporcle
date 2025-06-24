@@ -958,3 +958,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.quiz-list {
+
+  .quiz-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .top {
+      display: flex;
+      gap: 0.25rem;
+
+      .meta {
+        display: flex;
+        gap: 0.25rem;
+      }
+    }
+  }
+}
