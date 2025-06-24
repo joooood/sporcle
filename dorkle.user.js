@@ -390,7 +390,7 @@ function CategoryBadge({ category }) {
   return /* @__PURE__ */ u$1("span", { className: `ml-2 px-2 py-1 text-xs rounded-full ${colour}`, children: category });
 }
 function QuizCard({ quiz }) {
-  return /* @__PURE__ */ u$1("div", { className: "quiz-card", children: [
+  return /* @__PURE__ */ u$1("div", { className: "quiz-card bg-red-900", children: [
     /* @__PURE__ */ u$1("div", { className: "top", children: [
       /* @__PURE__ */ u$1("a", { className: "title", children: quiz.title }),
       /* @__PURE__ */ u$1("div", { className: "meta", children: [
