@@ -437,13 +437,13 @@ function CategoryBadge({ category }) {
   return /* @__PURE__ */ u$1("span", { className: `ml-2 px-2 py-1 text-xs rounded-full ${colour}`, children: category });
 }
 function QuizCard({ quiz }) {
-  return /* @__PURE__ */ u$1("div", { className: "quiz-card", children: [
-    /* @__PURE__ */ u$1("div", { className: "top", children: [
+  return /* @__PURE__ */ u$1("div", { className: "quiz-card flex flex-col gap-1", children: [
+    /* @__PURE__ */ u$1("div", { className: "top flex gap-1", children: [
       /* @__PURE__ */ u$1("a", { className: "title", children: quiz.title }),
-      /* @__PURE__ */ u$1("div", { className: "meta", children: [
+      /* @__PURE__ */ u$1("div", { className: "meta flex gap-1", children: [
         /* @__PURE__ */ u$1("div", { className: "author", children: [
           "by",
-          /* @__PURE__ */ u$1("a", { href: quiz.author.href, className: "underlin", children: quiz.author.name })
+          /* @__PURE__ */ u$1("a", { href: quiz.author.href, className: "underline", children: quiz.author.name })
         ] }),
         /* @__PURE__ */ u$1(CategoryBadge, { category: quiz.category })
       ] })
