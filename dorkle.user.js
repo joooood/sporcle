@@ -3,7 +3,7 @@
 // @description Remake the sporcle search function into a responsive SPA using Preact
 // @namespace   ViolentMonkey Scripts
 // @match       https://www.sporcle.com/search/*
-// @version     95.0.0
+// @version     992.0.0
 // @author      -
 // @updateURL   https://joooood.github.io/sporcle/dorkle.user.js
 // @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
@@ -680,9 +680,8 @@ function mount() {
     container.id = "search";
     document.body.prepend(container);
   }
-  const style = document.createElement("link");
-  style.rel = "stylesheet";
-  style.href = "https://cdn.tailwindcss.com";
+  const style = document.createElement("script");
+  style.src = "https://cdn.tailwindcss.com";
   document.head.appendChild(style);
   E(/* @__PURE__ */ u$1(App, {}), container);
 }
