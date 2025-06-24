@@ -4,7 +4,7 @@
 // @namespace   https://www.npmjs.com/package/vite-plugin-userscript
 // @grant       none
 // ==/UserScript==
-var n, l$1, u$2, i$1, r$1, o$1, e$1, f$2, c$1, s$1, a$1, p$1 = {}, v$1 = [], y$1 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$1 = Array.isArray;
+var n, l$1, u$2, i$1, r$1, o$1, e$1, f$2, c$1, s$1, a$1, h$1, p$1 = {}, v$1 = [], y$1 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$1 = Array.isArray;
 function d$1(n2, l2) {
   for (var u2 in l2) n2[u2] = l2[u2];
   return n2;
@@ -25,7 +25,7 @@ function m$1(n2, t2, i2, r2, o2) {
 function k$1(n2) {
   return n2.children;
 }
-function x(n2, l2) {
+function x$1(n2, l2) {
   this.props = n2, this.context = l2;
 }
 function S(n2, l2) {
@@ -124,7 +124,7 @@ function O(n2, u2, t2, i2, r2, o2, e2, f2, c2, s2) {
   if (null != u2.constructor) return null;
   128 & t2.__u && (c2 = !!(32 & t2.__u), o2 = [f2 = u2.__e = t2.__e]), (a2 = l$1.__b) && a2(u2);
   n: if ("function" == typeof j2) try {
-    if (b = u2.props, S2 = "prototype" in j2 && j2.prototype.render, C2 = (a2 = j2.contextType) && i2[a2.__c], M2 = a2 ? C2 ? C2.props.value : a2.__ : i2, t2.__c ? m2 = (h2 = u2.__c = t2.__c).__ = h2.__E : (S2 ? u2.__c = h2 = new j2(b, M2) : (u2.__c = h2 = new x(b, M2), h2.constructor = j2, h2.render = D$1), C2 && C2.sub(h2), h2.props = b, h2.state || (h2.state = {}), h2.context = M2, h2.__n = i2, p2 = h2.__d = true, h2.__h = [], h2._sb = []), S2 && null == h2.__s && (h2.__s = h2.state), S2 && null != j2.getDerivedStateFromProps && (h2.__s == h2.state && (h2.__s = d$1({}, h2.__s)), d$1(h2.__s, j2.getDerivedStateFromProps(b, h2.__s))), v2 = h2.props, y2 = h2.state, h2.__v = u2, p2) S2 && null == j2.getDerivedStateFromProps && null != h2.componentWillMount && h2.componentWillMount(), S2 && null != h2.componentDidMount && h2.__h.push(h2.componentDidMount);
+    if (b = u2.props, S2 = "prototype" in j2 && j2.prototype.render, C2 = (a2 = j2.contextType) && i2[a2.__c], M2 = a2 ? C2 ? C2.props.value : a2.__ : i2, t2.__c ? m2 = (h2 = u2.__c = t2.__c).__ = h2.__E : (S2 ? u2.__c = h2 = new j2(b, M2) : (u2.__c = h2 = new x$1(b, M2), h2.constructor = j2, h2.render = D$1), C2 && C2.sub(h2), h2.props = b, h2.state || (h2.state = {}), h2.context = M2, h2.__n = i2, p2 = h2.__d = true, h2.__h = [], h2._sb = []), S2 && null == h2.__s && (h2.__s = h2.state), S2 && null != j2.getDerivedStateFromProps && (h2.__s == h2.state && (h2.__s = d$1({}, h2.__s)), d$1(h2.__s, j2.getDerivedStateFromProps(b, h2.__s))), v2 = h2.props, y2 = h2.state, h2.__v = u2, p2) S2 && null == j2.getDerivedStateFromProps && null != h2.componentWillMount && h2.componentWillMount(), S2 && null != h2.componentDidMount && h2.__h.push(h2.componentDidMount);
     else {
       if (S2 && null == j2.getDerivedStateFromProps && b !== v2 && null != h2.componentWillReceiveProps && h2.componentWillReceiveProps(b, M2), !h2.__e && null != h2.shouldComponentUpdate && false === h2.shouldComponentUpdate(b, h2.__s, M2) || u2.__v == t2.__v) {
         for (u2.__v != t2.__v && (h2.props = b, h2.state = h2.__s, h2.__d = false), u2.__e = t2.__e, u2.__k = t2.__k, u2.__k.some(function(n3) {
@@ -228,6 +228,29 @@ function E(u2, t2, i2) {
   var r2, o2, e2, f2;
   t2 == document && (t2 = document.documentElement), l$1.__ && l$1.__(u2, t2), o2 = (r2 = false) ? null : t2.__k, e2 = [], f2 = [], O(t2, u2 = t2.__k = _(k$1, null, [u2]), o2 || p$1, p$1, t2.namespaceURI, o2 ? null : t2.firstChild ? n.call(t2.childNodes) : null, e2, o2 ? o2.__e : t2.firstChild, r2, f2), z$1(e2, u2, f2);
 }
+function K(n2) {
+  function l2(n3) {
+    var u2, t2;
+    return this.getChildContext || (u2 = /* @__PURE__ */ new Set(), (t2 = {})[l2.__c] = this, this.getChildContext = function() {
+      return t2;
+    }, this.componentWillUnmount = function() {
+      u2 = null;
+    }, this.shouldComponentUpdate = function(n4) {
+      this.props.value != n4.value && u2.forEach(function(n5) {
+        n5.__e = true, M(n5);
+      });
+    }, this.sub = function(n4) {
+      u2.add(n4);
+      var l3 = n4.componentWillUnmount;
+      n4.componentWillUnmount = function() {
+        u2 && u2.delete(n4), l3 && l3.call(n4);
+      };
+    }), n3.children;
+  }
+  return l2.__c = "__cC" + h$1++, l2.__ = n2, l2.Provider = l2.__l = (l2.Consumer = function(n3, l3) {
+    return n3.children(l3);
+  }).contextType = l2, l2;
+}
 n = v$1.slice, l$1 = { __e: function(n2, l2, u2, t2) {
   for (var i2, r2, o2; l2 = l2.__; ) if ((i2 = l2.__c) && !i2.__) try {
     if ((r2 = i2.constructor) && null != r2.getDerivedStateFromError && (i2.setState(r2.getDerivedStateFromError(n2)), o2 = i2.__d), null != i2.componentDidCatch && (i2.componentDidCatch(n2, t2 || {}), o2 = i2.__d), o2) return i2.__E = i2;
@@ -235,14 +258,14 @@ n = v$1.slice, l$1 = { __e: function(n2, l2, u2, t2) {
     n2 = l3;
   }
   throw n2;
-} }, u$2 = 0, x.prototype.setState = function(n2, l2) {
+} }, u$2 = 0, x$1.prototype.setState = function(n2, l2) {
   var u2;
   u2 = null != this.__s && this.__s != this.state ? this.__s : this.__s = d$1({}, this.state), "function" == typeof n2 && (n2 = n2(d$1({}, u2), this.props)), n2 && d$1(u2, n2), null != n2 && this.__v && (l2 && this._sb.push(l2), M(this));
-}, x.prototype.forceUpdate = function(n2) {
+}, x$1.prototype.forceUpdate = function(n2) {
   this.__v && (this.__e = true, n2 && this.__h.push(n2), M(this));
-}, x.prototype.render = k$1, i$1 = [], o$1 = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, e$1 = function(n2, l2) {
+}, x$1.prototype.render = k$1, i$1 = [], o$1 = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, e$1 = function(n2, l2) {
   return n2.__v.__b - l2.__v.__b;
-}, $.__r = 0, f$2 = /(PointerCapture)$|Capture$/i, c$1 = 0, s$1 = F(false), a$1 = F(true);
+}, $.__r = 0, f$2 = /(PointerCapture)$|Capture$/i, c$1 = 0, s$1 = F(false), a$1 = F(true), h$1 = 0;
 var f$1 = 0;
 function u$1(e2, t2, n2, o2, i2, u2) {
   t2 || (t2 = {});
@@ -298,6 +321,10 @@ function h(n2, u2, i2) {
 function y(n2, u2) {
   var i2 = p(t++, 3);
   !c.__s && C(i2.__H, u2) && (i2.__ = n2, i2.u = u2, r.__H.__h.push(i2));
+}
+function x(n2) {
+  var u2 = r.context[n2.__c], i2 = p(t++, 9);
+  return i2.c = n2, u2 ? (null == i2.__ && (i2.__ = true, u2.sub(r)), u2.props.value) : n2.__;
 }
 function j() {
   for (var n2; n2 = f.shift(); ) if (n2.__P && n2.__H) try {
@@ -368,6 +395,23 @@ function C(n2, t2) {
 function D(n2, t2) {
   return "function" == typeof t2 ? t2(n2) : t2;
 }
+const defaults = [
+  { name: "Quizzes", href: "/search/quizzes/?s=" },
+  { name: "Badges", href: "/search/badges/?s=" },
+  { name: "Playlists", href: "/search/playlists/?s=" }
+];
+const SearchContext = K(
+  void 0
+);
+function SearchProvider({ children }) {
+  const [selected, setSelected] = d(defaults[0]);
+  return /* @__PURE__ */ u$1(SearchContext.Provider, { value: { selected, setSelected, tabs: defaults }, children });
+}
+function useSearch() {
+  const context = x(SearchContext);
+  if (!context) throw new Error("useSearch must be used within a SearchProvider");
+  return context;
+}
 function CategoryBadge({ category }) {
   const colours = {
     Entertainment: "bg-blue-600",
@@ -390,7 +434,7 @@ function CategoryBadge({ category }) {
   return /* @__PURE__ */ u$1("span", { className: `ml-2 px-2 py-1 text-xs rounded-full ${colour}`, children: category });
 }
 function QuizCard({ quiz }) {
-  return /* @__PURE__ */ u$1("div", { className: "quiz-card bg-red-900", children: [
+  return /* @__PURE__ */ u$1("div", { className: "quiz-card", children: [
     /* @__PURE__ */ u$1("div", { className: "top", children: [
       /* @__PURE__ */ u$1("a", { className: "title", children: quiz.title }),
       /* @__PURE__ */ u$1("div", { className: "meta", children: [
@@ -442,8 +486,36 @@ function QuizList() {
   if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading quizzes..." });
   return /* @__PURE__ */ u$1("ul", { class: "quiz-list", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { children: /* @__PURE__ */ u$1(QuizCard, { quiz }) })) });
 }
+function TabsButton({ tab, selected, onSelect }) {
+  return /* @__PURE__ */ u$1(
+    "button",
+    {
+      className: `tabs-button ${selected ? "selected" : ""}`,
+      onClick: onSelect,
+      children: tab.name
+    }
+  );
+}
+function SearchTabsMenu() {
+  const { selected, setSelected, tabs } = useSearch();
+  return /* @__PURE__ */ u$1("div", { className: "tabs-menu", children: /* @__PURE__ */ u$1("ul", { className: "tabs-menu-list", children: tabs.map((tab) => /* @__PURE__ */ u$1("li", { className: "tabs-menu-list-item", children: /* @__PURE__ */ u$1(
+    TabsButton,
+    {
+      tab,
+      selected: selected.href === tab.href,
+      onSelect: () => setSelected(tab)
+    }
+  ) }, tab.href)) }) });
+}
+function SearchTabs() {
+  const { selected } = useSearch();
+  return /* @__PURE__ */ u$1(k$1, { children: [
+    /* @__PURE__ */ u$1(SearchTabsMenu, {}),
+    selected.name === "Quizzes" && /* @__PURE__ */ u$1(QuizList, {})
+  ] });
+}
 function Home() {
-  return /* @__PURE__ */ u$1(QuizList, {});
+  return /* @__PURE__ */ u$1(SearchProvider, { children: /* @__PURE__ */ u$1(SearchTabs, {}) });
 }
 function mount() {
   let container = document.getElementById("home");
