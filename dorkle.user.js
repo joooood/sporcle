@@ -2,8 +2,7 @@
 // @name        Sporcle Redesign
 // @description Remake the sporcle search function into a responsive SPA using Preact
 // @namespace   ViolentMonkey Scripts
-// @match       https://www.sporcle.com/search/*
-// @version     3.0.0
+// @match       https://www.sporcle.com/*
 // @author      -
 // @updateURL   https://joooood.github.io/sporcle/dorkle.user.js
 // @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
