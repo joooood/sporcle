@@ -1,7 +1,10 @@
 // ==UserScript==
-// @name        New Script
-// @description Do something awesome!
-// @namespace   https://www.npmjs.com/package/vite-plugin-userscript
+// @name        Sporcle Redesign
+// @description Remake the sporcle search function into a responsive SPA using Preact
+// @namespace   ViolentMonkey Scripts
+// @match       https://www.sporcle.com/search/*
+// @version     1.0.0
+// @author      -
 // @grant       none
 // ==/UserScript==
 var n, l$1, u$2, i$1, r$1, o$1, e$1, f$2, c$1, s$1, a$1, h$1, p$1 = {}, v$1 = [], y$1 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$1 = Array.isArray;
