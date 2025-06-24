@@ -14,4 +14,4 @@ export const SearchContext =     createContext<SearchContextType | undefined>(
 
 export function SearchProvider({ children }: { children: ComponentChildren }) {
   const [selected, setSelected] = useState<__Tab__>("");
-}
+}                             
