@@ -5,5 +5,7 @@
   "grant": [],
   "version": "1.0.0",
   "author": "-",
-  "description": "Remake the sporcle search function into a responsive SPA using Preact"
+  "description": "Remake the sporcle search function into a responsive SPA using Preact",
+  "updateURL": "https://joooood.github.io/sporcle/dorkle.user.js",
+  "downloadURL": "https://joooood.github.io/sporcle/dorkle.user.js"
 }
