@@ -3,7 +3,7 @@
 // @description Remake the sporcle search function into a responsive SPA using Preact
 // @namespace   ViolentMonkey Scripts
 // @match       https://www.sporcle.com/search/*
-// @version     74.0.0
+// @version     3.0.0
 // @author      -
 // @updateURL   https://joooood.github.io/sporcle/dorkle.user.js
 // @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
@@ -62,7 +62,7 @@ function I$1(n2, l2, u2, t2, i2, r2, o2, e2, f2, c2, s2) {
 }
 function P(n2, l2, u2, t2, i2) {
   var r2, o2, e2, f2, c2, s2 = u2.length, a2 = s2, h2 = 0;
-  for (n2.__k = new Array(i2), r2 = 0; r2 < i2; r2++) null != (o2 = l2[r2]) && "boolean" != typeof o2 && "function" != typeof o2 ? (f2 = r2 + h2, (o2 = n2.__k[r2] = "string" == typeof o2 || "number" == typeof o2 || "bigint" == typeof o2 || o2.constructor == String ? m$2(null, o2, null, null, null) : w$2(o2) ? m$2(k$2, { children: o2 }, null, null, null) : null == o2.constructor && o2.__b > 0 ? m$2(o2.type, o2.props, o2.key, o2.ref ? o2.ref : null, o2.__v) : o2).__ = n2, o2.__b = n2.__b + 1, e2 = null, -1 != (c2 = o2.__i = L(o2, u2, f2, a2)) && (a2--, (e2 = u2[c2]) && (e2.__u |= 2)), null == e2 || null == e2.__v ? (-1 == c2 && (i2 > s2 ? h2-- : i2 < s2 && h2++), "function" != typeof o2.type && (o2.__u |= 4)) : c2 != f2 && (c2 == f2 - 1 ? h2-- : c2 == f2 + 1 ? h2++ : (c2 > f2 ? h2-- : h2++, o2.__u |= 4))) : n2.__k[r2] = null;
+  for (n2.__k = new Array(i2), r2 = 0; r2 < i2; r2++) null != (o2 = l2[r2]) && "boolean" != typeof o2 && "function" != typeof o2 ? (f2 = r2 + h2, (o2 = n2.__k[r2] = "string" == typeof o2 || "number" == typeof o2 || "bigint" == typeof o2 || o2.constructor == String ? m$2(null, o2, null, null, null) : w$2(o2) ? m$2(k$2, { children: o2 }, null, null, null) : null == o2.constructor && o2.__b > 0 ? m$2(o2.type, o2.props, o2.key, o2.ref ? o2.ref : null, o2.__v) : o2).__ = n2, o2.__b = n2.__b + 1, e2 = null, -1 != (c2 = o2.__i = L$1(o2, u2, f2, a2)) && (a2--, (e2 = u2[c2]) && (e2.__u |= 2)), null == e2 || null == e2.__v ? (-1 == c2 && (i2 > s2 ? h2-- : i2 < s2 && h2++), "function" != typeof o2.type && (o2.__u |= 4)) : c2 != f2 && (c2 == f2 - 1 ? h2-- : c2 == f2 + 1 ? h2++ : (c2 > f2 ? h2-- : h2++, o2.__u |= 4))) : n2.__k[r2] = null;
   if (a2) for (r2 = 0; r2 < s2; r2++) null != (e2 = u2[r2]) && 0 == (2 & e2.__u) && (e2.__e == t2 && (t2 = S(e2)), B$1(e2, e2));
   return t2;
 }
@@ -83,7 +83,7 @@ function H(n2, l2) {
     H(n3, l2);
   }) : l2.push(n2)), l2;
 }
-function L(n2, l2, u2, t2) {
+function L$1(n2, l2, u2, t2) {
   var i2, r2, o2 = n2.key, e2 = n2.type, f2 = l2[u2];
   if (null === f2 && null == n2.key || f2 && o2 == f2.key && e2 == f2.type && 0 == (2 & f2.__u)) return u2;
   if (t2 > (null != f2 && 0 == (2 & f2.__u) ? 1 : 0)) for (i2 = u2 - 1, r2 = u2 + 1; i2 >= 0 || r2 < l2.length; ) {
@@ -533,6 +533,9 @@ c(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
   }
   return _(k.Provider, { value: s2 }, u2);
 } });
+var L = function(n2) {
+  return _(n2.component, n2);
+};
 function SiteHeader() {
   return /* @__PURE__ */ u$1("header", { className: "SiteHeader", children: [
     /* @__PURE__ */ u$1("div", { className: "top-bar" }),
@@ -543,8 +546,8 @@ function App() {
   return /* @__PURE__ */ u$1(k$2, { children: [
     /* @__PURE__ */ u$1(SiteHeader, {}),
     /* @__PURE__ */ u$1(D, { children: [
-      /* @__PURE__ */ u$1(HomePage, {}),
-      /* @__PURE__ */ u$1(Search, {})
+      /* @__PURE__ */ u$1(L, { path: "/", component: HomePage }),
+      /* @__PURE__ */ u$1(L, { path: "/search", component: Search })
     ] })
   ] });
 }
