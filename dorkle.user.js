@@ -537,7 +537,7 @@ var L = function(n2) {
 };
 function SiteHeader() {
   return /* @__PURE__ */ u$1("header", { className: "SiteHeader", children: [
-    /* @__PURE__ */ u$1("div", { className: "top-bar" }),
+    /* @__PURE__ */ u$1("div", { className: "top-bar bg-orange-400 w-screen h-10" }),
     /* @__PURE__ */ u$1("div", { className: "context-bar" })
   ] });
 }
@@ -679,7 +679,7 @@ function mount() {
   let container = document.getElementById("home");
   if (!container) {
     container = document.createElement("main");
-    container.id = "search";
+    container.id = "homepage";
     document.body.prepend(container);
   }
   const style = document.createElement("script");
