@@ -9,6 +9,25 @@
 // @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
 // @grant       none
 // ==/UserScript==
+var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateWrapper = (obj, member, setter, getter) => ({
+  set _(value) {
+    __privateSet(obj, member, value, setter);
+  },
+  get _() {
+    return __privateGet(obj, member, getter);
+  }
+});
+var _head, _tail, _size;
 var n, l$2, u$2, i$1, r$2, o$1, e$1, f$2, c$3, s$3, a$2, h$2, p$2 = {}, v$2 = [], y$2 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$2 = Array.isArray;
 function d$2(n2, l2) {
   for (var u2 in l2) n2[u2] = l2[u2];
@@ -612,26 +631,42 @@ function useSearch() {
   if (!context) throw new Error("useSearch must be used within a SearchProvider");
   return context;
 }
-function CategoryBadge({ category }) {
-  const colours = {
-    Entertainment: "bg-blue-600",
-    Gaming: "bg-purple-500",
-    Geography: "bg-green-700",
-    History: "bg-yellow-900",
-    Holiday: "bg-red-600",
-    "Just For Fun": "bg-yellow-400 text-black",
-    Language: "bg-teal-600",
-    Literature: "bg-gray-700",
-    Miscellaneous: "bg-slate-600",
-    Movies: "bg-red-400",
-    Music: "bg-emerald-600",
-    Religion: "bg-indigo-900",
-    Science: "bg-blue-500",
-    Sports: "bg-orange-600",
-    Television: "bg-fuchsia-600"
-  };
-  const colour = colours[category] || "bg-gray-400 text-white";
-  return /* @__PURE__ */ u$1("span", { className: `ml-2 px-2 py-1 text-xs rounded-full ${colour}`, children: category });
+async function scrapeQuizzesFromSearch(doc) {
+  try {
+    const raws = [...doc.querySelectorAll("#searchResults li")];
+    const data = raws.map((raw, index) => {
+      var _a, _b, _c, _d, _e, _f, _g, _h;
+      try {
+        const author = raw.querySelector(".gameCreator a:nth-child(1)");
+        return {
+          title: ((_b = (_a = raw.querySelector(".gameName")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
+          desc: ((_d = (_c = raw.querySelector(".gameDesc")) == null ? void 0 : _c.textContent) == null ? void 0 : _d.trim()) || "No description",
+          href: ((_e = raw.querySelector(".gameName")) == null ? void 0 : _e.getAttribute("href")) || "#",
+          category: ((_g = (_f = raw.querySelector(".gameCreator a:nth-child(2)")) == null ? void 0 : _f.textContent) == null ? void 0 : _g.trim()) || "Misc",
+          author: {
+            name: ((_h = author == null ? void 0 : author.textContent) == null ? void 0 : _h.trim()) || "Unknown",
+            href: (author == null ? void 0 : author.getAttribute("href")) || "#"
+          }
+        };
+      } catch (err) {
+        console.warn(`Failed to parse quiz at index ${index}:`, err);
+        return {
+          title: "Parse Error",
+          desc: "This quiz could not be parsed.",
+          href: "#",
+          category: "Unknown",
+          author: {
+            name: "Error",
+            href: "#"
+          }
+        };
+      }
+    });
+    return data;
+  } catch (err) {
+    console.error("Failed to fetch quizzes from document:", err);
+    return null;
+  }
 }
 function r(e2) {
   var t2, f2, n2 = "";
@@ -3600,7 +3635,7 @@ const getDefaultConfig = () => {
 const twMerge = /* @__PURE__ */ createTailwindMerge(getDefaultConfig);
 async function init(url) {
   try {
-    const res = await window.fetch(url);
+    const res = await fetch(url);
     const html = await res.text();
     return new DOMParser().parseFromString(html, "text/html");
   } catch (err) {
@@ -3611,75 +3646,318 @@ async function init(url) {
 function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
-function QuizCard({ quiz, className, ...props }) {
-  return /* @__PURE__ */ u$1("article", { "data-slot": "QuizCard", className: cn("group", className), ...props, children: [
-    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardHeader", className: "flex justify-between", children: /* @__PURE__ */ u$1(CategoryBadge, { category: quiz.category }) }),
-    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardContent", className: "", children: [
-      /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardSummary", className: "", children: [
-        /* @__PURE__ */ u$1("h3", { "data-slot": "QuizCardTitle", className: "" }),
-        /* @__PURE__ */ u$1("p", { "data-slot": "QuizCardDescription", className: "" })
-      ] }),
-      /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardMeta", className: "" })
-    ] }),
-    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardFooter", className: "", children: /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardTags", className: "" }) })
-  ] });
+function iconify(icon, props = {}) {
+  const IconComponent = icon;
+  return _(IconComponent, props);
 }
-async function fetchQuizzes(doc) {
-  try {
-    const raws = [...doc.querySelectorAll("#searchResults li")];
-    const data = raws.map((raw, index) => {
-      var _a, _b, _c, _d, _e, _f, _g, _h;
-      try {
-        const author = raw.querySelector(".gameCreator a:nth-child(1)");
-        return {
-          title: ((_b = (_a = raw.querySelector(".gameName")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
-          desc: ((_d = (_c = raw.querySelector(".gameDesc")) == null ? void 0 : _c.textContent) == null ? void 0 : _d.trim()) || "No description",
-          href: ((_e = raw.querySelector(".gameName")) == null ? void 0 : _e.getAttribute("href")) || "#",
-          category: ((_g = (_f = raw.querySelector(".gameCreator a:nth-child(2)")) == null ? void 0 : _f.textContent) == null ? void 0 : _g.trim()) || "Misc",
-          author: {
-            name: ((_h = author == null ? void 0 : author.textContent) == null ? void 0 : _h.trim()) || "Unknown",
-            href: (author == null ? void 0 : author.getAttribute("href")) || "#"
-          }
-        };
-      } catch (err) {
-        console.warn(`Failed to parse quiz at index ${index}:`, err);
-        return {
-          title: "Parse Error",
-          desc: "This quiz could not be parsed.",
-          href: "#",
-          category: "Unknown",
-          author: {
-            name: "Error",
-            href: "#"
-          }
-        };
+class Node {
+  constructor(value) {
+    __publicField(this, "value");
+    __publicField(this, "next");
+    this.value = value;
+  }
+}
+class Queue {
+  constructor() {
+    __privateAdd(this, _head);
+    __privateAdd(this, _tail);
+    __privateAdd(this, _size);
+    this.clear();
+  }
+  enqueue(value) {
+    const node = new Node(value);
+    if (__privateGet(this, _head)) {
+      __privateGet(this, _tail).next = node;
+      __privateSet(this, _tail, node);
+    } else {
+      __privateSet(this, _head, node);
+      __privateSet(this, _tail, node);
+    }
+    __privateWrapper(this, _size)._++;
+  }
+  dequeue() {
+    const current = __privateGet(this, _head);
+    if (!current) {
+      return;
+    }
+    __privateSet(this, _head, __privateGet(this, _head).next);
+    __privateWrapper(this, _size)._--;
+    return current.value;
+  }
+  peek() {
+    if (!__privateGet(this, _head)) {
+      return;
+    }
+    return __privateGet(this, _head).value;
+  }
+  clear() {
+    __privateSet(this, _head, void 0);
+    __privateSet(this, _tail, void 0);
+    __privateSet(this, _size, 0);
+  }
+  get size() {
+    return __privateGet(this, _size);
+  }
+  *[Symbol.iterator]() {
+    let current = __privateGet(this, _head);
+    while (current) {
+      yield current.value;
+      current = current.next;
+    }
+  }
+  *drain() {
+    while (__privateGet(this, _head)) {
+      yield this.dequeue();
+    }
+  }
+}
+_head = new WeakMap();
+_tail = new WeakMap();
+_size = new WeakMap();
+function pLimit(concurrency) {
+  validateConcurrency(concurrency);
+  const queue = new Queue();
+  let activeCount = 0;
+  const resumeNext = () => {
+    if (activeCount < concurrency && queue.size > 0) {
+      queue.dequeue()();
+      activeCount++;
+    }
+  };
+  const next = () => {
+    activeCount--;
+    resumeNext();
+  };
+  const run = async (function_, resolve, arguments_) => {
+    const result = (async () => function_(...arguments_))();
+    resolve(result);
+    try {
+      await result;
+    } catch {
+    }
+    next();
+  };
+  const enqueue = (function_, resolve, arguments_) => {
+    new Promise((internalResolve) => {
+      queue.enqueue(internalResolve);
+    }).then(
+      run.bind(void 0, function_, resolve, arguments_)
+    );
+    (async () => {
+      await Promise.resolve();
+      if (activeCount < concurrency) {
+        resumeNext();
       }
-    });
-    return data;
+    })();
+  };
+  const generator = (function_, ...arguments_) => new Promise((resolve) => {
+    enqueue(function_, resolve, arguments_);
+  });
+  Object.defineProperties(generator, {
+    activeCount: {
+      get: () => activeCount
+    },
+    pendingCount: {
+      get: () => queue.size
+    },
+    clearQueue: {
+      value() {
+        queue.clear();
+      }
+    },
+    concurrency: {
+      get: () => concurrency,
+      set(newConcurrency) {
+        validateConcurrency(newConcurrency);
+        concurrency = newConcurrency;
+        queueMicrotask(() => {
+          while (activeCount < concurrency && queue.size > 0) {
+            resumeNext();
+          }
+        });
+      }
+    }
+  });
+  return generator;
+}
+function validateConcurrency(concurrency) {
+  if (!((Number.isInteger(concurrency) || concurrency === Number.POSITIVE_INFINITY) && concurrency > 0)) {
+    throw new TypeError("Expected `concurrency` to be a number from 1 and up");
+  }
+}
+const metaScrapeLimit = pLimit(5);
+async function scrapeMetasFromSearch(doc) {
+  var _a, _b, _c, _d, _e, _f, _g, _h;
+  try {
+    const timeLimit = ((_b = (_a = doc.querySelector("#timeBox #time")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "";
+    const numPlays = ((_d = (_c = doc.querySelector("#play-count .trigger-text")) == null ? void 0 : _c.textContent) == null ? void 0 : _d.replace(/\s*Plays\s*/i, "").trim()) || "";
+    const rating = ((_f = (_e = doc.querySelector(".ratings #avgRatingNum")) == null ? void 0 : _e.textContent) == null ? void 0 : _f.trim()) || "";
+    const difficulty = ((_h = (_g = doc.querySelector(".difficulty-container .title")) == null ? void 0 : _g.textContent) == null ? void 0 : _h.trim()) || "";
+    const tags = Array.from(doc.querySelectorAll("#breadcrumb-bar .link a")).map((element) => {
+      var _a2;
+      return (_a2 = element.textContent) == null ? void 0 : _a2.trim();
+    }).filter((text) => Boolean(text));
+    const meta = {
+      timeLimit,
+      numPlays,
+      rating,
+      difficulty,
+      tags
+    };
+    return meta;
   } catch (err) {
-    console.error("Failed to fetch quizzes from document:", err);
+    console.error("Failed to fetch meta from document:", err);
     return null;
   }
 }
-function QuizList() {
-  const [quizzes, setQuizzes] = d$1([]);
+function CategoryBadge({ category }) {
+  const colours = {
+    Entertainment: "bg-blue-600",
+    Gaming: "bg-purple-500",
+    Geography: "bg-green-700",
+    History: "bg-yellow-900",
+    Holiday: "bg-red-600",
+    "Just For Fun": "bg-yellow-400 text-black",
+    Language: "bg-teal-600",
+    Literature: "bg-gray-700",
+    Miscellaneous: "bg-slate-600",
+    Movies: "bg-red-400",
+    Music: "bg-emerald-600",
+    Religion: "bg-indigo-900",
+    Science: "bg-blue-500",
+    Sports: "bg-orange-600",
+    Television: "bg-fuchsia-600"
+  };
+  const colour = colours[category] || "bg-gray-400 text-white";
+  return /* @__PURE__ */ u$1("span", { className: `ml-2 px-2 py-1 text-xs rounded-full ${colour}`, children: category });
+}
+function Skeleton({ width, height, className, ...props }) {
+  return /* @__PURE__ */ u$1(
+    "div",
+    {
+      "data-slot": "Skeleton",
+      className: `bg-gray-300 rounded animate-pulse ${className}`,
+      style: { width, height },
+      ...props
+    }
+  );
+}
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Clock = [
+  ["circle", { cx: "12", cy: "12", r: "10" }],
+  ["polyline", { points: "12 6 12 12 16 14" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Star = [
+  [
+    "path",
+    {
+      d: "M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+    }
+  ]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Users = [
+  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" }],
+  ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744" }],
+  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87" }],
+  ["circle", { cx: "9", cy: "7", r: "4" }]
+];
+function QuizCard({ quiz, className, ...props }) {
+  const [meta, setMeta] = d$1(null);
   const [loading, setLoading] = d$1(true);
   y$1(() => {
     (async () => {
-      const url = "/search/quizzes/?s=";
+      let url = quiz.href;
+      let mounted = true;
       setLoading(true);
       let doc = null;
       try {
         doc = await init(url);
       } catch (err) {
-        console.log("Error initialising doc from ", url, ": ", err);
+        console.error("QuizCard error initialising doc from ", url, ": ", err);
+      }
+      if (!doc) return;
+      metaScrapeLimit(() => scrapeMetasFromSearch(doc)).then((data) => {
+        if (mounted) {
+          setMeta(data);
+          setLoading(false);
+        }
+      }).catch((err) => {
+        console.error(err);
+        if (mounted) setLoading(false);
+      });
+      return () => {
+        mounted = false;
+      };
+    })();
+  }, [quiz.href]);
+  return /* @__PURE__ */ u$1("article", { "data-slot": "QuizCard", className: cn("group", className), ...props, children: [
+    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardHeader", className: "flex justify-between", children: /* @__PURE__ */ u$1(CategoryBadge, { category: quiz.category }) }),
+    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardContent", className: "", children: [
+      /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardSummary", className: "", children: [
+        /* @__PURE__ */ u$1("h3", { "data-slot": "QuizCardTitle", className: "", children: quiz.title || /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1.5em" }) }),
+        /* @__PURE__ */ u$1("p", { "data-slot": "QuizCardDescription", className: "", children: quiz.desc || /* @__PURE__ */ u$1(Skeleton, { width: "80%", height: "1em" }) })
+      ] }),
+      /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardMeta", className: "", children: loading ? /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1em" }) : meta ? /* @__PURE__ */ u$1(k$2, { children: [
+        /* @__PURE__ */ u$1("div", { "data-slot": "TimeLimit", children: [
+          iconify(Clock),
+          /* @__PURE__ */ u$1("span", { children: meta.timeLimit })
+        ] }),
+        /* @__PURE__ */ u$1("div", { "data-slot": "Plays", children: [
+          iconify(Users),
+          /* @__PURE__ */ u$1("span", { children: meta.numPlays })
+        ] }),
+        /* @__PURE__ */ u$1("div", { "data-slot": "Rating", children: [
+          iconify(Star, { class: "text-yellow-300" }),
+          /* @__PURE__ */ u$1("span", { children: meta.rating })
+        ] })
+      ] }) : /* @__PURE__ */ u$1("p", { children: "No meta data" }) })
+    ] }),
+    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardFooter", className: "", children: /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardTags", className: "", children: loading ? /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1em" }) : (meta == null ? void 0 : meta.tags.length) ? meta == null ? void 0 : meta.tags.map((tag) => /* @__PURE__ */ u$1("span", { children: tag }, tag)) : null }) })
+  ] });
+}
+function QuizList({ quizzes }) {
+  return /* @__PURE__ */ u$1("ul", { "data-slot": "QuizList", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { "data-slot": "QuizListItem", children: /* @__PURE__ */ u$1(QuizCard, { quiz }) }, quiz.href)) });
+}
+function SearchResults({ url }) {
+  const [quizzes, setQuizzes] = d$1([]);
+  const [loading, setLoading] = d$1(true);
+  y$1(() => {
+    (async () => {
+      setLoading(true);
+      let doc = null;
+      try {
+        doc = await init(url);
+      } catch (err) {
+        console.log(
+          "SearchResults error initialising doc from ",
+          url,
+          ": ",
+          err
+        );
       }
       if (!doc) return;
       let data = null;
       try {
-        data = await fetchQuizzes(doc);
+        data = await scrapeQuizzesFromSearch(doc);
       } catch (err) {
-        console.log("Error fetching quizzes: ", err);
+        console.log("Error scraping quizzes: ", err);
       }
       if (!data) return;
       setQuizzes(data);
@@ -3687,7 +3965,7 @@ function QuizList() {
     })();
   }, []);
   if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading quizzes..." });
-  return /* @__PURE__ */ u$1("ul", { class: "quiz-list", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { children: /* @__PURE__ */ u$1(QuizCard, { quiz }) })) });
+  return /* @__PURE__ */ u$1(QuizList, { quizzes });
 }
 function TabsButton({ tab, selected, onSelect }) {
   return /* @__PURE__ */ u$1(
@@ -3714,7 +3992,7 @@ function SearchTabs() {
   const { selected } = useSearch();
   return /* @__PURE__ */ u$1(k$2, { children: [
     /* @__PURE__ */ u$1(SearchTabsMenu, {}),
-    selected.name === "Quizzes" && /* @__PURE__ */ u$1(QuizList, {})
+    selected.name === "Quizzes" && /* @__PURE__ */ u$1(SearchResults, { url: "" })
   ] });
 }
 function Search() {
