@@ -8,7 +8,7 @@
 // @downloadURL https://joooood.github.io/sporcle/dorkle.user.js
 // @grant       none
 // ==/UserScript==
-var n, l$2, u$2, i$1, r$2, o$1, e$1, f$2, c$2, s$2, a$2, h$2, p$2 = {}, v$2 = [], y$2 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$2 = Array.isArray;
+var n, l$2, u$2, i$1, r$2, o$1, e$1, f$2, c$3, s$3, a$2, h$2, p$2 = {}, v$2 = [], y$2 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, w$2 = Array.isArray;
 function d$2(n2, l2) {
   for (var u2 in l2) n2[u2] = l2[u2];
   return n2;
@@ -37,21 +37,21 @@ function S(n2, l2) {
   for (var u2; l2 < n2.__k.length; l2++) if (null != (u2 = n2.__k[l2]) && null != u2.__e) return u2.__e;
   return "function" == typeof n2.type ? S(n2) : null;
 }
-function C$1(n2) {
+function C$2(n2) {
   var l2, u2;
   if (null != (n2 = n2.__) && null != n2.__c) {
     for (n2.__e = n2.__c.base = null, l2 = 0; l2 < n2.__k.length; l2++) if (null != (u2 = n2.__k[l2]) && null != u2.__e) {
       n2.__e = n2.__c.base = u2.__e;
       break;
     }
-    return C$1(n2);
+    return C$2(n2);
   }
 }
 function M$1(n2) {
   (!n2.__d && (n2.__d = true) && i$1.push(n2) && !$$1.__r++ || r$2 != l$2.debounceRendering) && ((r$2 = l$2.debounceRendering) || o$1)($$1);
 }
 function $$1() {
-  for (var n2, u2, t2, r2, o2, f2, c2, s2 = 1; i$1.length; ) i$1.length > s2 && i$1.sort(e$1), n2 = i$1.shift(), s2 = i$1.length, n2.__d && (t2 = void 0, o2 = (r2 = (u2 = n2).__v).__e, f2 = [], c2 = [], u2.__P && ((t2 = d$2({}, r2)).__v = r2.__v + 1, l$2.vnode && l$2.vnode(t2), O(u2.__P, t2, r2, u2.__n, u2.__P.namespaceURI, 32 & r2.__u ? [o2] : null, f2, null == o2 ? S(r2) : o2, !!(32 & r2.__u), c2), t2.__v = r2.__v, t2.__.__k[t2.__i] = t2, z$1(f2, t2, c2), t2.__e != o2 && C$1(t2)));
+  for (var n2, u2, t2, r2, o2, f2, c2, s2 = 1; i$1.length; ) i$1.length > s2 && i$1.sort(e$1), n2 = i$1.shift(), s2 = i$1.length, n2.__d && (t2 = void 0, o2 = (r2 = (u2 = n2).__v).__e, f2 = [], c2 = [], u2.__P && ((t2 = d$2({}, r2)).__v = r2.__v + 1, l$2.vnode && l$2.vnode(t2), O(u2.__P, t2, r2, u2.__n, u2.__P.namespaceURI, 32 & r2.__u ? [o2] : null, f2, null == o2 ? S(r2) : o2, !!(32 & r2.__u), c2), t2.__v = r2.__v, t2.__.__k[t2.__i] = t2, z$1(f2, t2, c2), t2.__e != o2 && C$2(t2)));
   $$1.__r = 0;
 }
 function I$1(n2, l2, u2, t2, i2, r2, o2, e2, f2, c2, s2) {
@@ -107,7 +107,7 @@ function j$1(n2, l2, u2, t2, i2) {
     if ("string" == typeof t2 && (n2.style.cssText = t2 = ""), t2) for (l2 in t2) u2 && l2 in u2 || T(n2.style, l2, "");
     if (u2) for (l2 in u2) t2 && u2[l2] == t2[l2] || T(n2.style, l2, u2[l2]);
   }
-  else if ("o" == l2[0] && "n" == l2[1]) r2 = l2 != (l2 = l2.replace(f$2, "$1")), o2 = l2.toLowerCase(), l2 = o2 in n2 || "onFocusOut" == l2 || "onFocusIn" == l2 ? o2.slice(2) : l2.slice(2), n2.l || (n2.l = {}), n2.l[l2 + r2] = u2, u2 ? t2 ? u2.u = t2.u : (u2.u = c$2, n2.addEventListener(l2, r2 ? a$2 : s$2, r2)) : n2.removeEventListener(l2, r2 ? a$2 : s$2, r2);
+  else if ("o" == l2[0] && "n" == l2[1]) r2 = l2 != (l2 = l2.replace(f$2, "$1")), o2 = l2.toLowerCase(), l2 = o2 in n2 || "onFocusOut" == l2 || "onFocusIn" == l2 ? o2.slice(2) : l2.slice(2), n2.l || (n2.l = {}), n2.l[l2 + r2] = u2, u2 ? t2 ? u2.u = t2.u : (u2.u = c$3, n2.addEventListener(l2, r2 ? a$2 : s$3, r2)) : n2.removeEventListener(l2, r2 ? a$2 : s$3, r2);
   else {
     if ("http://www.w3.org/2000/svg" == i2) l2 = l2.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
     else if ("width" != l2 && "height" != l2 && "href" != l2 && "list" != l2 && "form" != l2 && "tabIndex" != l2 && "download" != l2 && "rowSpan" != l2 && "colSpan" != l2 && "role" != l2 && "popover" != l2 && l2 in n2) try {
@@ -122,7 +122,7 @@ function F(n2) {
   return function(u2) {
     if (this.l) {
       var t2 = this.l[u2.type + n2];
-      if (null == u2.t) u2.t = c$2++;
+      if (null == u2.t) u2.t = c$3++;
       else if (u2.t < t2.u) return;
       return t2(l$2.event ? l$2.event(u2) : u2);
     }
@@ -233,7 +233,7 @@ function B$1(n2, u2, t2) {
 function D$2(n2, l2, u2) {
   return this.constructor(n2, u2);
 }
-function E(u2, t2, i2) {
+function E$1(u2, t2, i2) {
   var r2, o2, e2, f2;
   t2 == document && (t2 = document.documentElement), l$2.__ && l$2.__(u2, t2), o2 = (r2 = false) ? null : t2.__k, e2 = [], f2 = [], O(t2, u2 = t2.__k = _(k$2, null, [u2]), o2 || p$2, p$2, t2.namespaceURI, o2 ? null : t2.firstChild ? n.call(t2.childNodes) : null, e2, o2 ? o2.__e : t2.firstChild, r2, f2), z$1(e2, u2, f2);
 }
@@ -279,7 +279,7 @@ n = v$2.slice, l$2 = { __e: function(n2, l2, u2, t2) {
   this.__v && (this.__e = true, n2 && this.__h.push(n2), M$1(this));
 }, x$1.prototype.render = k$2, i$1 = [], o$1 = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, e$1 = function(n2, l2) {
   return n2.__v.__b - l2.__v.__b;
-}, $$1.__r = 0, f$2 = /(PointerCapture)$|Capture$/i, c$2 = 0, s$2 = F(false), a$2 = F(true), h$2 = 0;
+}, $$1.__r = 0, f$2 = /(PointerCapture)$|Capture$/i, c$3 = 0, s$3 = F(false), a$2 = F(true), h$2 = 0;
 var f$1 = 0;
 function u$1(e2, t2, n2, o2, i2, u2) {
   t2 || (t2 = {});
@@ -289,9 +289,9 @@ function u$1(e2, t2, n2, o2, i2, u2) {
   if ("function" == typeof e2 && (a2 = e2.defaultProps)) for (c2 in a2) void 0 === p2[c2] && (p2[c2] = a2[c2]);
   return l$2.vnode && l$2.vnode(l2), l2;
 }
-var t, r$1, u, i, o = 0, f = [], c$1 = l$2, e = c$1.__b, a$1 = c$1.__r, v$1 = c$1.diffed, l$1 = c$1.__c, m$1 = c$1.unmount, s$1 = c$1.__;
+var t, r$1, u, i, o = 0, f = [], c$2 = l$2, e = c$2.__b, a$1 = c$2.__r, v$1 = c$2.diffed, l$1 = c$2.__c, m$1 = c$2.unmount, s$2 = c$2.__;
 function p$1(n2, t2) {
-  c$1.__h && c$1.__h(r$1, n2, o || t2), o = 0;
+  c$2.__h && c$2.__h(r$1, n2, o || t2), o = 0;
   var u2 = r$1.__H || (r$1.__H = { __: [], __h: [] });
   return n2 >= u2.__.length && u2.__.push({}), u2.__[n2];
 }
@@ -334,7 +334,7 @@ function h$1(n2, u2, i2) {
 }
 function y$1(n2, u2) {
   var i2 = p$1(t++, 3);
-  !c$1.__s && C(i2.__H, u2) && (i2.__ = n2, i2.u = u2, r$1.__H.__h.push(i2));
+  !c$2.__s && C$1(i2.__H, u2) && (i2.__ = n2, i2.u = u2, r$1.__H.__h.push(i2));
 }
 function x(n2) {
   var u2 = r$1.context[n2.__c], i2 = p$1(t++, 9);
@@ -344,26 +344,26 @@ function j() {
   for (var n2; n2 = f.shift(); ) if (n2.__P && n2.__H) try {
     n2.__H.__h.forEach(z), n2.__H.__h.forEach(B), n2.__H.__h = [];
   } catch (t2) {
-    n2.__H.__h = [], c$1.__e(t2, n2.__v);
+    n2.__H.__h = [], c$2.__e(t2, n2.__v);
   }
 }
-c$1.__b = function(n2) {
+c$2.__b = function(n2) {
   r$1 = null, e && e(n2);
-}, c$1.__ = function(n2, t2) {
-  n2 && t2.__k && t2.__k.__m && (n2.__m = t2.__k.__m), s$1 && s$1(n2, t2);
-}, c$1.__r = function(n2) {
+}, c$2.__ = function(n2, t2) {
+  n2 && t2.__k && t2.__k.__m && (n2.__m = t2.__k.__m), s$2 && s$2(n2, t2);
+}, c$2.__r = function(n2) {
   a$1 && a$1(n2), t = 0;
   var i2 = (r$1 = n2.__c).__H;
   i2 && (u === r$1 ? (i2.__h = [], r$1.__h = [], i2.__.forEach(function(n3) {
     n3.__N && (n3.__ = n3.__N), n3.u = n3.__N = void 0;
   })) : (i2.__h.forEach(z), i2.__h.forEach(B), i2.__h = [], t = 0)), u = r$1;
-}, c$1.diffed = function(n2) {
+}, c$2.diffed = function(n2) {
   v$1 && v$1(n2);
   var t2 = n2.__c;
-  t2 && t2.__H && (t2.__H.__h.length && (1 !== f.push(t2) && i === c$1.requestAnimationFrame || ((i = c$1.requestAnimationFrame) || w$1)(j)), t2.__H.__.forEach(function(n3) {
+  t2 && t2.__H && (t2.__H.__h.length && (1 !== f.push(t2) && i === c$2.requestAnimationFrame || ((i = c$2.requestAnimationFrame) || w$1)(j)), t2.__H.__.forEach(function(n3) {
     n3.u && (n3.__H = n3.u), n3.u = void 0;
   })), u = r$1 = null;
-}, c$1.__c = function(n2, t2) {
+}, c$2.__c = function(n2, t2) {
   t2.some(function(n3) {
     try {
       n3.__h.forEach(z), n3.__h = n3.__h.filter(function(n4) {
@@ -372,10 +372,10 @@ c$1.__b = function(n2) {
     } catch (r2) {
       t2.some(function(n4) {
         n4.__h && (n4.__h = []);
-      }), t2 = [], c$1.__e(r2, n3.__v);
+      }), t2 = [], c$2.__e(r2, n3.__v);
     }
   }), l$1 && l$1(n2, t2);
-}, c$1.unmount = function(n2) {
+}, c$2.unmount = function(n2) {
   m$1 && m$1(n2);
   var t2, r2 = n2.__c;
   r2 && r2.__H && (r2.__H.__.forEach(function(n3) {
@@ -384,7 +384,7 @@ c$1.__b = function(n2) {
     } catch (n4) {
       t2 = n4;
     }
-  }), r2.__H = void 0, t2 && c$1.__e(t2, r2.__v));
+  }), r2.__H = void 0, t2 && c$2.__e(t2, r2.__v));
 };
 var k$1 = "function" == typeof requestAnimationFrame;
 function w$1(n2) {
@@ -401,7 +401,7 @@ function B(n2) {
   var t2 = r$1;
   n2.__c = n2.__(), r$1 = t2;
 }
-function C(n2, t2) {
+function C$1(n2, t2) {
   return !n2 || n2.length !== t2.length || t2.some(function(t3, r2) {
     return t3 !== n2[r2];
   });
@@ -410,11 +410,11 @@ function D$1(n2, t2) {
   return "function" == typeof t2 ? t2(n2) : t2;
 }
 var a = {};
-function c(n2, t2) {
+function c$1(n2, t2) {
   for (var r2 in t2) n2[r2] = t2[r2];
   return n2;
 }
-function s(n2, t2, r2) {
+function s$1(n2, t2, r2) {
   var i2, o2 = /(?:\?([^#]*))?(#.*)?$/, e2 = n2.match(o2), u2 = {};
   if (e2 && e2[1]) for (var f2 = e2[1].split("&"), c2 = 0; c2 < f2.length; c2++) {
     var s2 = f2[c2].split("=");
@@ -452,6 +452,18 @@ function l(n2) {
   return ":" == n2.charAt(0) ? 1 + "*+?".indexOf(n2.charAt(n2.length - 1)) || 4 : 5;
 }
 var p = {}, m = [], y = [], U = null, g = { url: R() }, k = K(g);
+function C() {
+  var n2 = x(k);
+  if (n2 === g) {
+    var t2 = d$1()[1];
+    y$1(function() {
+      return y.push(t2), function() {
+        return y.splice(y.indexOf(t2), 1);
+      };
+    }, []);
+  }
+  return [n2, $];
+}
 function R() {
   var n2;
   return "" + ((n2 = U && U.location ? U.location : U && U.getCurrentLocation ? U.getCurrentLocation() : "undefined" != typeof location ? location : p).pathname || "") + (n2.search || "");
@@ -492,7 +504,7 @@ var w = false;
 function D(n2) {
   n2.history && (U = n2.history), this.state = { url: n2.url || R() };
 }
-c(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
+c$1(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
   return true !== n2.static || n2.url !== this.props.url || n2.onChange !== this.props.onChange;
 }, canRoute: function(n2) {
   var t2 = H(this.props.children);
@@ -520,19 +532,21 @@ c(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
 }, g: function(n2, t2) {
   n2 = n2.filter(v).sort(h);
   for (var r2 = 0; r2 < n2.length; r2++) {
-    var i2 = n2[r2], o2 = s(t2, i2.props.path, i2.props);
+    var i2 = n2[r2], o2 = s$1(t2, i2.props.path, i2.props);
     if (o2) return [i2, o2];
   }
 }, render: function(n2, t2) {
   var e2, u2, f2 = n2.onChange, a2 = t2.url, s2 = this.c, h2 = this.g(H(n2.children), a2);
-  if (h2 && (u2 = J(h2[0], c(c({ url: a2, matches: e2 = h2[1] }, e2), { key: void 0, ref: void 0 }))), a2 !== (s2 && s2.url)) {
-    c(g, s2 = this.c = { url: a2, previous: s2 && s2.url, current: u2, path: u2 ? u2.props.path : null, matches: e2 }), s2.router = this, s2.active = u2 ? [u2] : [];
+  if (h2 && (u2 = J(h2[0], c$1(c$1({ url: a2, matches: e2 = h2[1] }, e2), { key: void 0, ref: void 0 }))), a2 !== (s2 && s2.url)) {
+    c$1(g, s2 = this.c = { url: a2, previous: s2 && s2.url, current: u2, path: u2 ? u2.props.path : null, matches: e2 }), s2.router = this, s2.active = u2 ? [u2] : [];
     for (var v2 = y.length; v2--; ) y[v2]({});
     "function" == typeof f2 && f2(s2);
   }
   return _(k.Provider, { value: s2 }, u2);
 } });
-var L = function(n2) {
+var E = function(n2) {
+  return _("a", c$1({ onClick: W }, n2));
+}, L = function(n2) {
   return _(n2.component, n2);
 };
 function SiteHeader() {
@@ -550,6 +564,25 @@ function App() {
     ] })
   ] });
 }
+var s = ["className", "activeClass", "activeClassName", "path"];
+function c(l2) {
+  var c2 = l2.className, n2 = l2.activeClass, u2 = l2.activeClassName, i2 = l2.path, p2 = function(a2, t2) {
+    if (null == a2) return {};
+    var r2, e2, s2 = {}, l3 = Object.keys(a2);
+    for (e2 = 0; e2 < l3.length; e2++) t2.indexOf(r2 = l3[e2]) >= 0 || (s2[r2] = a2[r2]);
+    return s2;
+  }(l2, s), h2 = C()[0], f2 = i2 && h2.path && s$1(h2.path, i2, {}) || s$1(h2.url, p2.href, {}), o2 = p2.class || c2 || "", m2 = f2 && (n2 || u2) || "";
+  return p2.class = o2 + (o2 && m2 && " ") + m2, _(E, p2);
+}
+const Link = c;
+function SporcleLink({
+  href,
+  children,
+  className = "",
+  ariaLabel
+}) {
+  return /* @__PURE__ */ u$1(Link, { href, class: className, "aria-label": ariaLabel, children });
+}
 function HomePage() {
   const [loading, setLoading] = d$1(true);
   y$1(() => {
@@ -559,7 +592,7 @@ function HomePage() {
     })();
   }, []);
   if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading homepage..." });
-  return /* @__PURE__ */ u$1("main", { id: "homepage", className: "" });
+  return /* @__PURE__ */ u$1("main", { id: "homepage", className: "", children: /* @__PURE__ */ u$1(SporcleLink, { href: "/search", children: "Go to search" }) });
 }
 const defaults = [
   { name: "Quizzes", href: "/search/quizzes/?s=" },
@@ -3696,7 +3729,7 @@ function mount() {
   const style = document.createElement("script");
   style.src = "https://cdn.tailwindcss.com";
   document.head.appendChild(style);
-  E(/* @__PURE__ */ u$1(App, {}), container);
+  E$1(/* @__PURE__ */ u$1(App, {}), container);
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", mount);
