@@ -3907,30 +3907,57 @@ function QuizCard({ quiz, className, ...props }) {
       };
     })();
   }, [quiz.href]);
-  return /* @__PURE__ */ u$1("article", { "data-slot": "QuizCard", className: cn("group", className), ...props, children: [
-    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardHeader", className: "flex justify-between", children: /* @__PURE__ */ u$1(CategoryBadge, { category: quiz.category }) }),
-    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardContent", className: "", children: [
-      /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardSummary", className: "", children: [
-        /* @__PURE__ */ u$1("h3", { "data-slot": "QuizCardTitle", className: "", children: quiz.title || /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1.5em" }) }),
-        /* @__PURE__ */ u$1("p", { "data-slot": "QuizCardDescription", className: "", children: quiz.desc || /* @__PURE__ */ u$1(Skeleton, { width: "80%", height: "1em" }) })
-      ] }),
-      /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardMeta", className: "", children: loading ? /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1em" }) : meta ? /* @__PURE__ */ u$1(k$2, { children: [
-        /* @__PURE__ */ u$1("div", { "data-slot": "TimeLimit", children: [
-          iconify(Clock),
-          /* @__PURE__ */ u$1("span", { children: meta.timeLimit })
+  return /* @__PURE__ */ u$1(
+    "article",
+    {
+      "data-slot": "QuizCard",
+      className: cn(
+        "p-5 border bg-white h-min rounded-sm flex flex-col gap-1",
+        className
+      ),
+      ...props,
+      children: [
+        /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardHeader", className: "flex gap-2 items-center", children: [
+          /* @__PURE__ */ u$1(CategoryBadge, { category: quiz.category }),
+          /* @__PURE__ */ u$1(
+            "h3",
+            {
+              "data-slot": "QuizCardTitle",
+              className: "text-lg leading-tight font-semibold",
+              children: quiz.title || /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1.5em" })
+            }
+          )
         ] }),
-        /* @__PURE__ */ u$1("div", { "data-slot": "Plays", children: [
-          iconify(Users),
-          /* @__PURE__ */ u$1("span", { children: meta.numPlays })
+        /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardContent", className: "flex flex-col gap-1", children: [
+          /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardSummary", className: "", children: /* @__PURE__ */ u$1("p", { "data-slot": "QuizCardDescription", className: "text-muted-foreground", children: quiz.desc || /* @__PURE__ */ u$1(Skeleton, { width: "80%", height: "1em" }) }) }),
+          /* @__PURE__ */ u$1(
+            "div",
+            {
+              "data-slot": "QuizCardMeta",
+              className: "flex gap-5 text-muted-foreground",
+              children: loading ? /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1em" }) : meta ? /* @__PURE__ */ u$1(k$2, { children: [
+                /* @__PURE__ */ u$1("div", { "data-slot": "TimeLimit", className: "flex items-center gap-1", children: [
+                  iconify(Clock, { class: "w-5 h-5" }),
+                  /* @__PURE__ */ u$1("span", { children: meta.timeLimit })
+                ] }),
+                /* @__PURE__ */ u$1("div", { "data-slot": "Plays", className: "flex items-center gap-1", children: [
+                  iconify(Users, { class: "w-5 h-5" }),
+                  /* @__PURE__ */ u$1("span", { children: meta.numPlays })
+                ] }),
+                /* @__PURE__ */ u$1("div", { "data-slot": "Rating", className: "flex items-center gap-1", children: [
+                  iconify(Star, {
+                    class: "w-5 h-5 fill-yellow-400 text-yellow-400"
+                  }),
+                  /* @__PURE__ */ u$1("span", { children: meta.rating })
+                ] })
+              ] }) : /* @__PURE__ */ u$1("p", { children: "No meta data" })
+            }
+          )
         ] }),
-        /* @__PURE__ */ u$1("div", { "data-slot": "Rating", children: [
-          iconify(Star, { class: "text-yellow-300" }),
-          /* @__PURE__ */ u$1("span", { children: meta.rating })
-        ] })
-      ] }) : /* @__PURE__ */ u$1("p", { children: "No meta data" }) })
-    ] }),
-    /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardFooter", className: "", children: /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardTags", className: "", children: loading ? /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1em" }) : (meta == null ? void 0 : meta.tags.length) ? meta == null ? void 0 : meta.tags.map((tag) => /* @__PURE__ */ u$1("span", { children: tag }, tag)) : null }) })
-  ] });
+        /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardFooter", className: "mt-1 text-sm font-semibold", children: /* @__PURE__ */ u$1("div", { "data-slot": "QuizCardTags", className: "flex items-center gap-2", children: loading ? /* @__PURE__ */ u$1(Skeleton, { width: "100%", height: "1em" }) : (meta == null ? void 0 : meta.tags.length) ? meta == null ? void 0 : meta.tags.map((tag) => /* @__PURE__ */ u$1("span", { className: "px-3 py-1 rounded-lg border", children: tag }, tag)) : null }) })
+      ]
+    }
+  );
 }
 function QuizList({ quizzes }) {
   return /* @__PURE__ */ u$1("ul", { "data-slot": "QuizList", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { "data-slot": "QuizListItem", children: /* @__PURE__ */ u$1(QuizCard, { quiz }) }, quiz.href)) });
