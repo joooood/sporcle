@@ -3810,38 +3810,48 @@ async function scrapeMetasFromSearch(doc) {
     return null;
   }
 }
-function CategoryBadge({ category }) {
-  const colours = {
-    Entertainment: "bg-blue-600",
-    Gaming: "bg-purple-500",
-    Geography: "bg-green-700",
-    History: "bg-yellow-900",
-    Holiday: "bg-red-600",
-    "Just For Fun": "bg-yellow-400 text-black",
-    Language: "bg-teal-600",
-    Literature: "bg-gray-700",
-    Miscellaneous: "bg-slate-600",
-    Movies: "bg-red-400",
-    Music: "bg-emerald-600",
-    Religion: "bg-indigo-900",
-    Science: "bg-blue-500",
-    Sports: "bg-orange-600",
-    Television: "bg-fuchsia-600"
-  };
-  const colour = colours[category] || "bg-gray-400 text-white";
-  return /* @__PURE__ */ u$1("span", { className: `ml-2 px-2 py-1 text-xs rounded-full ${colour}`, children: category });
-}
-function Skeleton({ width, height, className, ...props }) {
-  return /* @__PURE__ */ u$1(
-    "div",
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const BookOpenText = [
+  ["path", { d: "M12 7v14" }],
+  ["path", { d: "M16 12h2" }],
+  ["path", { d: "M16 8h2" }],
+  [
+    "path",
     {
-      "data-slot": "Skeleton",
-      className: `bg-gray-300 rounded animate-pulse ${className}`,
-      style: { width, height },
-      ...props
+      d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
     }
-  );
-}
+  ],
+  ["path", { d: "M6 12h2" }],
+  ["path", { d: "M6 8h2" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Church = [
+  ["path", { d: "M10 9h4" }],
+  ["path", { d: "M12 7v5" }],
+  ["path", { d: "M14 22v-4a2 2 0 0 0-4 0v4" }],
+  [
+    "path",
+    {
+      d: "M18 22V5.618a1 1 0 0 0-.553-.894l-4.553-2.277a2 2 0 0 0-1.788 0L6.553 4.724A1 1 0 0 0 6 5.618V22"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "m18 7 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.618a1 1 0 0 1 .553-.894L6 7"
+    }
+  ]
+];
 /**
  * @license lucide v0.523.0 - ISC
  *
@@ -3851,6 +3861,135 @@ function Skeleton({ width, height, className, ...props }) {
 const Clock = [
   ["circle", { cx: "12", cy: "12", r: "10" }],
   ["polyline", { points: "12 6 12 12 16 14" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Film = [
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2" }],
+  ["path", { d: "M7 3v18" }],
+  ["path", { d: "M3 7.5h4" }],
+  ["path", { d: "M3 12h18" }],
+  ["path", { d: "M3 16.5h4" }],
+  ["path", { d: "M17 3v18" }],
+  ["path", { d: "M17 7.5h4" }],
+  ["path", { d: "M17 16.5h4" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const FlaskConical = [
+  [
+    "path",
+    {
+      d: "M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"
+    }
+  ],
+  ["path", { d: "M6.453 15h11.094" }],
+  ["path", { d: "M8.5 2h7" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Gamepad2 = [
+  ["line", { x1: "6", x2: "10", y1: "11", y2: "11" }],
+  ["line", { x1: "8", x2: "8", y1: "9", y2: "13" }],
+  ["line", { x1: "15", x2: "15.01", y1: "12", y2: "12" }],
+  ["line", { x1: "18", x2: "18.01", y1: "10", y2: "10" }],
+  [
+    "path",
+    {
+      d: "M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"
+    }
+  ]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Gift = [
+  ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1" }],
+  ["path", { d: "M12 8v13" }],
+  ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" }],
+  ["path", { d: "M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Globe = [
+  ["circle", { cx: "12", cy: "12", r: "10" }],
+  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" }],
+  ["path", { d: "M2 12h20" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Languages = [
+  ["path", { d: "m5 8 6 6" }],
+  ["path", { d: "m4 14 6-6 2-3" }],
+  ["path", { d: "M2 5h12" }],
+  ["path", { d: "M7 2h1" }],
+  ["path", { d: "m22 22-5-10-5 10" }],
+  ["path", { d: "M14 18h6" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Music = [
+  ["path", { d: "M9 18V5l12-2v13" }],
+  ["circle", { cx: "6", cy: "18", r: "3" }],
+  ["circle", { cx: "18", cy: "16", r: "3" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const ScrollText = [
+  ["path", { d: "M15 12h-5" }],
+  ["path", { d: "M15 8h-5" }],
+  ["path", { d: "M19 17V5a2 2 0 0 0-2-2H4" }],
+  [
+    "path",
+    {
+      d: "M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"
+    }
+  ]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const SmilePlus = [
+  ["path", { d: "M22 11v1a10 10 0 1 1-9-10" }],
+  ["path", { d: "M8 14s1.5 2 4 2 4-2 4-2" }],
+  ["line", { x1: "9", x2: "9.01", y1: "9", y2: "9" }],
+  ["line", { x1: "15", x2: "15.01", y1: "9", y2: "9" }],
+  ["path", { d: "M16 5h6" }],
+  ["path", { d: "M19 2v6" }]
 ];
 /**
  * @license lucide v0.523.0 - ISC
@@ -3872,12 +4011,113 @@ const Star = [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
+const Ticket = [
+  [
+    "path",
+    {
+      d: "M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+    }
+  ],
+  ["path", { d: "M13 5v2" }],
+  ["path", { d: "M13 17v2" }],
+  ["path", { d: "M13 11v2" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Trophy = [
+  ["path", { d: "M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978" }],
+  ["path", { d: "M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978" }],
+  ["path", { d: "M18 9h1.5a1 1 0 0 0 0-5H18" }],
+  ["path", { d: "M4 22h16" }],
+  ["path", { d: "M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" }],
+  ["path", { d: "M6 9H4.5a1 1 0 0 1 0-5H6" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const Tv = [
+  ["path", { d: "m17 2-5 5-5-5" }],
+  ["rect", { width: "20", height: "15", x: "2", y: "7", rx: "2" }]
+];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
 const Users = [
   ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" }],
   ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744" }],
   ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87" }],
   ["circle", { cx: "9", cy: "7", r: "4" }]
 ];
+/**
+ * @license lucide v0.523.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const WandSparkles = [
+  [
+    "path",
+    {
+      d: "m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"
+    }
+  ],
+  ["path", { d: "m14 7 3 3" }],
+  ["path", { d: "M5 6v4" }],
+  ["path", { d: "M19 14v4" }],
+  ["path", { d: "M10 2v2" }],
+  ["path", { d: "M7 8H3" }],
+  ["path", { d: "M21 16h-4" }],
+  ["path", { d: "M11 3H9" }]
+];
+function CategoryBadge({ category }) {
+  const categories = {
+    Entertainment: { colour: "bg-blue-600", icon: Ticket },
+    Gaming: { colour: "bg-purple-500", icon: Gamepad2 },
+    Geography: { colour: "bg-green-700", icon: Globe },
+    History: { colour: "bg-yellow-900", icon: ScrollText },
+    Holiday: { colour: "bg-red-600", icon: Gift },
+    "Just For Fun": { colour: "bg-yellow-400 text-black", icon: SmilePlus },
+    Language: { colour: "bg-teal-600", icon: Languages },
+    Literature: { colour: "bg-gray-700", icon: BookOpenText },
+    Miscellaneous: { colour: "bg-slate-600", icon: WandSparkles },
+    Movies: { colour: "bg-red-400", icon: Film },
+    Music: { colour: "bg-emerald-600", icon: Music },
+    Religion: { colour: "bg-indigo-900", icon: Church },
+    Science: { colour: "bg-blue-500", icon: FlaskConical },
+    Sports: { colour: "bg-orange-600", icon: Trophy },
+    Television: { colour: "bg-fuchsia-600", icon: Tv }
+  };
+  const Icon = categories[category].icon;
+  const colour = categories[category].colour || "bg-gray-400 text-white";
+  return /* @__PURE__ */ u$1("div", { "data-slot": "CategoryBadge", className: "flex gap-1", children: /* @__PURE__ */ u$1(
+    "div",
+    {
+      className: `w-10 h-10 ${colour} rounded-lg flex items-center justify-center mx-auto`,
+      children: /* @__PURE__ */ u$1(Icon, { className: "w-6 h-6 text-inherit" })
+    }
+  ) });
+}
+function Skeleton({ width, height, className, ...props }) {
+  return /* @__PURE__ */ u$1(
+    "div",
+    {
+      "data-slot": "Skeleton",
+      className: `bg-gray-300 rounded animate-pulse ${className}`,
+      style: { width, height },
+      ...props
+    }
+  );
+}
 function QuizCard({ quiz, className, ...props }) {
   const [meta, setMeta] = d$1(null);
   const [loading, setLoading] = d$1(true);
