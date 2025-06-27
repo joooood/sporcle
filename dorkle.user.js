@@ -3960,7 +3960,7 @@ function QuizCard({ quiz, className, ...props }) {
   );
 }
 function QuizList({ quizzes }) {
-  return /* @__PURE__ */ u$1("ul", { "data-slot": "QuizList", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { "data-slot": "QuizListItem", children: /* @__PURE__ */ u$1(QuizCard, { quiz }) }, quiz.href)) });
+  return /* @__PURE__ */ u$1("ul", { "data-slot": "QuizList", className: "grid grid-cols-3", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { "data-slot": "QuizListItem", children: /* @__PURE__ */ u$1(QuizCard, { quiz }) }, quiz.href)) });
 }
 function SearchResults({ url }) {
   const [quizzes, setQuizzes] = d$1([]);
