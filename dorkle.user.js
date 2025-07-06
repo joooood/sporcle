@@ -81,7 +81,7 @@ function I$1(n2, l2, u2, t2, i2, r2, o2, e2, f2, c2, s2) {
 }
 function P(n2, l2, u2, t2, i2) {
   var r2, o2, e2, f2, c2, s2 = u2.length, a2 = s2, h2 = 0;
-  for (n2.__k = new Array(i2), r2 = 0; r2 < i2; r2++) null != (o2 = l2[r2]) && "boolean" != typeof o2 && "function" != typeof o2 ? (f2 = r2 + h2, (o2 = n2.__k[r2] = "string" == typeof o2 || "number" == typeof o2 || "bigint" == typeof o2 || o2.constructor == String ? m$2(null, o2, null, null, null) : w$2(o2) ? m$2(k$2, { children: o2 }, null, null, null) : null == o2.constructor && o2.__b > 0 ? m$2(o2.type, o2.props, o2.key, o2.ref ? o2.ref : null, o2.__v) : o2).__ = n2, o2.__b = n2.__b + 1, e2 = null, -1 != (c2 = o2.__i = L$1(o2, u2, f2, a2)) && (a2--, (e2 = u2[c2]) && (e2.__u |= 2)), null == e2 || null == e2.__v ? (-1 == c2 && (i2 > s2 ? h2-- : i2 < s2 && h2++), "function" != typeof o2.type && (o2.__u |= 4)) : c2 != f2 && (c2 == f2 - 1 ? h2-- : c2 == f2 + 1 ? h2++ : (c2 > f2 ? h2-- : h2++, o2.__u |= 4))) : n2.__k[r2] = null;
+  for (n2.__k = new Array(i2), r2 = 0; r2 < i2; r2++) null != (o2 = l2[r2]) && "boolean" != typeof o2 && "function" != typeof o2 ? (f2 = r2 + h2, (o2 = n2.__k[r2] = "string" == typeof o2 || "number" == typeof o2 || "bigint" == typeof o2 || o2.constructor == String ? m$2(null, o2, null, null, null) : w$2(o2) ? m$2(k$2, { children: o2 }, null, null, null) : null == o2.constructor && o2.__b > 0 ? m$2(o2.type, o2.props, o2.key, o2.ref ? o2.ref : null, o2.__v) : o2).__ = n2, o2.__b = n2.__b + 1, e2 = null, -1 != (c2 = o2.__i = L(o2, u2, f2, a2)) && (a2--, (e2 = u2[c2]) && (e2.__u |= 2)), null == e2 || null == e2.__v ? (-1 == c2 && (i2 > s2 ? h2-- : i2 < s2 && h2++), "function" != typeof o2.type && (o2.__u |= 4)) : c2 != f2 && (c2 == f2 - 1 ? h2-- : c2 == f2 + 1 ? h2++ : (c2 > f2 ? h2-- : h2++, o2.__u |= 4))) : n2.__k[r2] = null;
   if (a2) for (r2 = 0; r2 < s2; r2++) null != (e2 = u2[r2]) && 0 == (2 & e2.__u) && (e2.__e == t2 && (t2 = S(e2)), B$1(e2, e2));
   return t2;
 }
@@ -102,7 +102,7 @@ function H(n2, l2) {
     H(n3, l2);
   }) : l2.push(n2)), l2;
 }
-function L$1(n2, l2, u2, t2) {
+function L(n2, l2, u2, t2) {
   var i2, r2, o2 = n2.key, e2 = n2.type, f2 = l2[u2];
   if (null === f2 && null == n2.key || f2 && o2 == f2.key && e2 == f2.type && 0 == (2 & f2.__u)) return u2;
   if (t2 > (null != f2 && 0 == (2 & f2.__u) ? 1 : 0)) for (i2 = u2 - 1, r2 = u2 + 1; i2 >= 0 || r2 < l2.length; ) {
@@ -153,7 +153,7 @@ function O(n2, u2, t2, i2, r2, o2, e2, f2, c2, s2) {
   if (null != u2.constructor) return null;
   128 & t2.__u && (c2 = !!(32 & t2.__u), o2 = [f2 = u2.__e = t2.__e]), (a2 = l$2.__b) && a2(u2);
   n: if ("function" == typeof j2) try {
-    if (b2 = u2.props, S2 = "prototype" in j2 && j2.prototype.render, C2 = (a2 = j2.contextType) && i2[a2.__c], M2 = a2 ? C2 ? C2.props.value : a2.__ : i2, t2.__c ? m2 = (h2 = u2.__c = t2.__c).__ = h2.__E : (S2 ? u2.__c = h2 = new j2(b2, M2) : (u2.__c = h2 = new x$1(b2, M2), h2.constructor = j2, h2.render = D$2), C2 && C2.sub(h2), h2.props = b2, h2.state || (h2.state = {}), h2.context = M2, h2.__n = i2, p2 = h2.__d = true, h2.__h = [], h2._sb = []), S2 && null == h2.__s && (h2.__s = h2.state), S2 && null != j2.getDerivedStateFromProps && (h2.__s == h2.state && (h2.__s = d$2({}, h2.__s)), d$2(h2.__s, j2.getDerivedStateFromProps(b2, h2.__s))), v2 = h2.props, y2 = h2.state, h2.__v = u2, p2) S2 && null == j2.getDerivedStateFromProps && null != h2.componentWillMount && h2.componentWillMount(), S2 && null != h2.componentDidMount && h2.__h.push(h2.componentDidMount);
+    if (b2 = u2.props, S2 = "prototype" in j2 && j2.prototype.render, C2 = (a2 = j2.contextType) && i2[a2.__c], M2 = a2 ? C2 ? C2.props.value : a2.__ : i2, t2.__c ? m2 = (h2 = u2.__c = t2.__c).__ = h2.__E : (S2 ? u2.__c = h2 = new j2(b2, M2) : (u2.__c = h2 = new x$1(b2, M2), h2.constructor = j2, h2.render = D$1), C2 && C2.sub(h2), h2.props = b2, h2.state || (h2.state = {}), h2.context = M2, h2.__n = i2, p2 = h2.__d = true, h2.__h = [], h2._sb = []), S2 && null == h2.__s && (h2.__s = h2.state), S2 && null != j2.getDerivedStateFromProps && (h2.__s == h2.state && (h2.__s = d$2({}, h2.__s)), d$2(h2.__s, j2.getDerivedStateFromProps(b2, h2.__s))), v2 = h2.props, y2 = h2.state, h2.__v = u2, p2) S2 && null == j2.getDerivedStateFromProps && null != h2.componentWillMount && h2.componentWillMount(), S2 && null != h2.componentDidMount && h2.__h.push(h2.componentDidMount);
     else {
       if (S2 && null == j2.getDerivedStateFromProps && b2 !== v2 && null != h2.componentWillReceiveProps && h2.componentWillReceiveProps(b2, M2), !h2.__e && null != h2.shouldComponentUpdate && false === h2.shouldComponentUpdate(b2, h2.__s, M2) || u2.__v == t2.__v) {
         for (u2.__v != t2.__v && (h2.props = b2, h2.state = h2.__s, h2.__d = false), u2.__e = t2.__e, u2.__k = t2.__k, u2.__k.some(function(n3) {
@@ -250,7 +250,7 @@ function B$1(n2, u2, t2) {
   if (i2 = n2.__k) for (r2 = 0; r2 < i2.length; r2++) i2[r2] && B$1(i2[r2], u2, t2 || "function" != typeof n2.type);
   t2 || g$1(n2.__e), n2.__c = n2.__ = n2.__e = void 0;
 }
-function D$2(n2, l2, u2) {
+function D$1(n2, l2, u2) {
   return this.constructor(n2, u2);
 }
 function E$1(u2, t2, i2) {
@@ -316,11 +316,11 @@ function p$1(n2, t2) {
   return n2 >= u2.__.length && u2.__.push({}), u2.__[n2];
 }
 function d$1(n2) {
-  return o = 1, h$1(D$1, n2);
+  return o = 1, h$1(D, n2);
 }
 function h$1(n2, u2, i2) {
   var o2 = p$1(t++, 2);
-  if (o2.t = n2, !o2.__c && (o2.__ = [D$1(void 0, u2), function(n3) {
+  if (o2.t = n2, !o2.__c && (o2.__ = [D(void 0, u2), function(n3) {
     var t2 = o2.__N ? o2.__N[0] : o2.__[0], r2 = o2.t(t2, n3);
     t2 !== r2 && (o2.__N = [r2, o2.__[1]], o2.__c.setState({}));
   }], o2.__c = r$1, !r$1.__f)) {
@@ -426,7 +426,7 @@ function C$1(n2, t2) {
     return t3 !== n2[r2];
   });
 }
-function D$1(n2, t2) {
+function D(n2, t2) {
   return "function" == typeof t2 ? t2(n2) : t2;
 }
 var a = {};
@@ -442,12 +442,12 @@ function s$1(n2, t2, r2) {
   }
   n2 = d(n2.replace(o2, "")), t2 = d(t2 || "");
   for (var h2 = Math.max(n2.length, t2.length), v2 = 0; v2 < h2; v2++) if (t2[v2] && ":" === t2[v2].charAt(0)) {
-    var l2 = t2[v2].replace(/(^:|[+*?]+$)/g, ""), p2 = (t2[v2].match(/[+*?]+$/) || a)[0] || "", m2 = ~p2.indexOf("+"), y2 = ~p2.indexOf("*"), U2 = n2[v2] || "";
-    if (!U2 && !y2 && (p2.indexOf("?") < 0 || m2)) {
+    var l2 = t2[v2].replace(/(^:|[+*?]+$)/g, ""), p2 = (t2[v2].match(/[+*?]+$/) || a)[0] || "", m2 = ~p2.indexOf("+"), y2 = ~p2.indexOf("*"), U = n2[v2] || "";
+    if (!U && !y2 && (p2.indexOf("?") < 0 || m2)) {
       i2 = false;
       break;
     }
-    if (u2[l2] = decodeURIComponent(U2), m2 || y2) {
+    if (u2[l2] = decodeURIComponent(U), m2 || y2) {
       u2[l2] = n2.slice(v2).map(decodeURIComponent).join("/");
       break;
     }
@@ -471,7 +471,7 @@ function d(n2) {
 function l(n2) {
   return ":" == n2.charAt(0) ? 1 + "*+?".indexOf(n2.charAt(n2.length - 1)) || 4 : 5;
 }
-var p = {}, m = [], y = [], U = null, g = { url: R() }, k = K(g);
+var p = {}, m = [], y = [], g = { url: R() }, k = K(g);
 function C() {
   var n2 = x(k);
   if (n2 === g) {
@@ -486,14 +486,14 @@ function C() {
 }
 function R() {
   var n2;
-  return "" + ((n2 = U && U.location ? U.location : U && U.getCurrentLocation ? U.getCurrentLocation() : "undefined" != typeof location ? location : p).pathname || "") + (n2.search || "");
+  return "" + ((n2 = "undefined" != typeof location ? location : p).pathname || "") + (n2.search || "");
 }
 function $(n2, t2) {
   return void 0 === t2 && (t2 = false), "string" != typeof n2 && n2.url && (t2 = n2.replace, n2 = n2.url), function(n3) {
     for (var t3 = m.length; t3--; ) if (m[t3].canRoute(n3)) return true;
     return false;
   }(n2) && function(n3, t3) {
-    void 0 === t3 && (t3 = "push"), U && U[t3] ? U[t3](n3) : "undefined" != typeof history && history[t3 + "State"] && history[t3 + "State"](null, null, n3);
+    void 0 === t3 && (t3 = "push"), "undefined" != typeof history && history[t3 + "State"] && history[t3 + "State"](null, null, n3);
   }(n2, t2 ? "replace" : "push"), I(n2);
 }
 function I(n2) {
@@ -521,10 +521,7 @@ function W(n2) {
   }
 }
 var w = false;
-function D(n2) {
-  n2.history && (U = n2.history), this.state = { url: n2.url || R() };
-}
-c$1(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
+c$1(new x$1(), { shouldComponentUpdate: function(n2) {
   return true !== n2.static || n2.url !== this.props.url || n2.onChange !== this.props.onChange;
 }, canRoute: function(n2) {
   var t2 = H(this.props.children);
@@ -536,13 +533,9 @@ c$1(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
 }, componentWillMount: function() {
   this.p = true;
 }, componentDidMount: function() {
-  var n2 = this;
-  w || (w = true, U || addEventListener("popstate", function() {
+  w || (w = true, addEventListener("popstate", function() {
     I(R());
-  }), addEventListener("click", W)), m.push(this), U && (this.u = U.listen(function(t2) {
-    var r2 = t2.location || t2;
-    n2.routeTo("" + (r2.pathname || "") + (r2.search || ""));
-  })), this.p = false;
+  }), addEventListener("click", W)), m.push(this), this.p = false;
 }, componentWillUnmount: function() {
   "function" == typeof this.u && this.u(), m.splice(m.indexOf(this), 1);
 }, componentWillUpdate: function() {
@@ -566,24 +559,7 @@ c$1(D.prototype = new x$1(), { shouldComponentUpdate: function(n2) {
 } });
 var E = function(n2) {
   return _("a", c$1({ onClick: W }, n2));
-}, L = function(n2) {
-  return _(n2.component, n2);
 };
-function SiteHeader() {
-  return /* @__PURE__ */ u$1("header", { className: "SiteHeader", children: [
-    /* @__PURE__ */ u$1("div", { className: "top-bar bg-orange-400 w-screen h-10" }),
-    /* @__PURE__ */ u$1("div", { className: "context-bar" })
-  ] });
-}
-function App() {
-  return /* @__PURE__ */ u$1(k$2, { children: [
-    /* @__PURE__ */ u$1(SiteHeader, {}),
-    /* @__PURE__ */ u$1(D, { children: [
-      /* @__PURE__ */ u$1(L, { default: true, path: "/", component: HomePage }),
-      /* @__PURE__ */ u$1(L, { path: "/search", component: Search })
-    ] })
-  ] });
-}
 var s = ["className", "activeClass", "activeClassName", "path"];
 function c(l2) {
   var c2 = l2.className, n2 = l2.activeClass, u2 = l2.activeClassName, i2 = l2.path, p2 = function(a2, t2) {
@@ -602,71 +578,6 @@ function SporcleLink({
   ariaLabel
 }) {
   return /* @__PURE__ */ u$1(Link, { href, class: className, "aria-label": ariaLabel, children });
-}
-function HomePage() {
-  const [loading, setLoading] = d$1(true);
-  y$1(() => {
-    (async () => {
-      setLoading(true);
-      setLoading(false);
-    })();
-  }, []);
-  if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading homepage..." });
-  return /* @__PURE__ */ u$1("main", { id: "homepage", className: "", children: /* @__PURE__ */ u$1(SporcleLink, { href: "/search", children: "Go to search" }) });
-}
-const defaults = [
-  { name: "Quizzes", href: "/search/quizzes/?s=" },
-  { name: "Badges", href: "/search/badges/?s=" },
-  { name: "Playlists", href: "/search/playlists/?s=" }
-];
-const SearchContext = K(
-  void 0
-);
-function SearchProvider({ children }) {
-  const [selected, setSelected] = d$1(defaults[0]);
-  return /* @__PURE__ */ u$1(SearchContext.Provider, { value: { selected, setSelected, tabs: defaults }, children });
-}
-function useSearch() {
-  const context = x(SearchContext);
-  if (!context) throw new Error("useSearch must be used within a SearchProvider");
-  return context;
-}
-async function scrapeQuizzesFromSearch(doc) {
-  try {
-    const raws = [...doc.querySelectorAll("#searchResults li")];
-    const data = raws.map((raw, index) => {
-      var _a, _b, _c, _d, _e, _f, _g, _h;
-      try {
-        const author = raw.querySelector(".gameCreator a:nth-child(1)");
-        return {
-          title: ((_b = (_a = raw.querySelector(".gameName")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
-          desc: ((_d = (_c = raw.querySelector(".gameDesc")) == null ? void 0 : _c.textContent) == null ? void 0 : _d.trim()) || "No description",
-          href: ((_e = raw.querySelector(".gameName")) == null ? void 0 : _e.getAttribute("href")) || "#",
-          category: ((_g = (_f = raw.querySelector(".gameCreator a:nth-child(2)")) == null ? void 0 : _f.textContent) == null ? void 0 : _g.trim()) || "Misc",
-          author: {
-            name: ((_h = author == null ? void 0 : author.textContent) == null ? void 0 : _h.trim()) || "Unknown",
-            href: (author == null ? void 0 : author.getAttribute("href")) || "#"
-          }
-        };
-      } catch (err) {
-        console.warn(`Failed to parse quiz at index ${index}:`, err);
-        return {
-          title: "Parse Error",
-          desc: "This quiz could not be parsed.",
-          href: "#",
-          category: "Unknown",
-          author: {
-            name: "Error",
-            href: "#"
-          }
-        };
-      }
-    });
-    return data;
-  } catch (err) {
-    console.error("Failed to fetch quizzes from document:", err);
-    return null;
-  }
 }
 function r(e2) {
   var t2, f2, n2 = "";
@@ -3633,13 +3544,13 @@ const getDefaultConfig = () => {
   };
 };
 const twMerge = /* @__PURE__ */ createTailwindMerge(getDefaultConfig);
-async function init(url) {
+async function init(url2) {
   try {
-    const res = await fetch(url);
+    const res = await fetch(url2);
     const html = await res.text();
     return new DOMParser().parseFromString(html, "text/html");
   } catch (err) {
-    console.error("Failed to fetch DOM from", url, err);
+    console.error("Failed to fetch DOM from", url2, err);
     return null;
   }
 }
@@ -4081,31 +3992,44 @@ const WandSparkles = [
 ];
 function CategoryBadge({ category }) {
   const categories = {
-    Entertainment: { colour: "bg-blue-600", icon: Ticket },
-    Gaming: { colour: "bg-purple-500", icon: Gamepad2 },
-    Geography: { colour: "bg-green-700", icon: Globe },
-    History: { colour: "bg-yellow-900", icon: ScrollText },
-    Holiday: { colour: "bg-red-600", icon: Gift },
-    "Just For Fun": { colour: "bg-yellow-400 text-black", icon: SmilePlus },
-    Language: { colour: "bg-teal-600", icon: Languages },
-    Literature: { colour: "bg-gray-700", icon: BookOpenText },
-    Miscellaneous: { colour: "bg-slate-600", icon: WandSparkles },
-    Movies: { colour: "bg-red-400", icon: Film },
-    Music: { colour: "bg-emerald-600", icon: Music },
-    Religion: { colour: "bg-indigo-900", icon: Church },
-    Science: { colour: "bg-blue-500", icon: FlaskConical },
-    Sports: { colour: "bg-orange-600", icon: Trophy },
-    Television: { colour: "bg-fuchsia-600", icon: Tv }
+    Entertainment: { icon: Ticket, primary: "blue-600" },
+    Gaming: { icon: Gamepad2, primary: "purple-500" },
+    Geography: { icon: Globe, primary: "green-700" },
+    History: { icon: ScrollText, primary: "yellow-900" },
+    Holiday: { icon: Gift, primary: "red-600" },
+    "Just For Fun": {
+      icon: SmilePlus,
+      primary: "yellow-400",
+      secondary: "black"
+    },
+    Language: { icon: Languages, primary: "teal-600" },
+    Literature: { icon: BookOpenText, primary: "gray-700" },
+    Miscellaneous: { icon: WandSparkles, primary: "slate-600" },
+    Movies: { icon: Film, primary: "red-400" },
+    Music: { icon: Music, primary: "emerald-600" },
+    Religion: { icon: Church, primary: "indigo-900" },
+    Science: { icon: FlaskConical, primary: "blue-500" },
+    Sports: { icon: Trophy, primary: "orange-600" },
+    Television: { icon: Tv, primary: "fuchsia-600" }
   };
-  const Icon = categories[category].icon;
-  const colour = categories[category].colour || "bg-gray-400 text-white";
-  return /* @__PURE__ */ u$1("div", { "data-slot": "CategoryBadge", className: "flex gap-1", children: /* @__PURE__ */ u$1(
-    "div",
+  const Icon = categories[category].icon || Gamepad2;
+  const primary = categories[category].primary || "purple-500";
+  const secondary = categories[category].secondary || "white";
+  return /* @__PURE__ */ u$1(
+    SporcleLink,
     {
-      className: `w-10 h-10 ${colour} rounded-lg flex items-center justify-center mx-auto`,
-      children: /* @__PURE__ */ u$1(Icon, { className: "w-6 h-6 text-inherit" })
+      href: `categories/${category}`,
+      "data-slot": "CategoryBadge",
+      className: "flex gap-1",
+      children: /* @__PURE__ */ u$1(
+        "div",
+        {
+          className: `w-10 h-10 hover:bg-${primary}/80 bg-${primary} rounded-lg flex items-center justify-center mx-auto`,
+          children: /* @__PURE__ */ u$1(Icon, { className: `w-6 h-6 text-${secondary}` })
+        }
+      )
     }
-  ) });
+  );
 }
 function Skeleton({ width, height, className, ...props }) {
   return /* @__PURE__ */ u$1(
@@ -4123,14 +4047,14 @@ function QuizCard({ quiz, className, ...props }) {
   const [loading, setLoading] = d$1(true);
   y$1(() => {
     (async () => {
-      let url = quiz.href;
+      let url2 = quiz.href;
       let mounted = true;
       setLoading(true);
       let doc = null;
       try {
-        doc = await init(url);
+        doc = await init(url2);
       } catch (err) {
-        console.error("QuizCard error initialising doc from ", url, ": ", err);
+        console.error("QuizCard error initialising doc from ", url2, ": ", err);
       }
       if (!doc) return;
       metaScrapeLimit(() => scrapeMetasFromSearch(doc)).then((data) => {
@@ -4202,7 +4126,32 @@ function QuizCard({ quiz, className, ...props }) {
 function QuizList({ quizzes }) {
   return /* @__PURE__ */ u$1("ul", { "data-slot": "QuizList", className: "grid grid-cols-3", children: quizzes.map((quiz) => /* @__PURE__ */ u$1("li", { "data-slot": "QuizListItem", children: /* @__PURE__ */ u$1(QuizCard, { quiz }) }, quiz.href)) });
 }
-function SearchResults({ url }) {
+async function scrapeQuizzesFromHomepage(doc) {
+  const quizzes = [];
+  try {
+    let raws = [...doc.querySelectorAll("#staff-picks .quiz-link-with-image")];
+    let data = raws.map((raw) => {
+      var _a, _b, _c, _d, _e;
+      return {
+        title: ((_b = (_a = raw.querySelector(".icon-wrapper span")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
+        desc: "Placeholder",
+        href: ((_c = raw.querySelector(".link-wrapper")) == null ? void 0 : _c.getAttribute("href")) || "#",
+        category: ((_e = (_d = raw.querySelector(".label span.label-text")) == null ? void 0 : _d.textContent) == null ? void 0 : _e.trim()) || "Misc",
+        author: {
+          name: "Placeholder",
+          href: "#"
+        }
+      };
+    });
+    quizzes.push(...data);
+  } catch (err) {
+    console.error("Failed to fetches quizzes from document: ", err);
+    return null;
+  }
+  return quizzes;
+}
+const url = "https://www.sporcle.com/";
+function Homepage() {
   const [quizzes, setQuizzes] = d$1([]);
   const [loading, setLoading] = d$1(true);
   y$1(() => {
@@ -4212,17 +4161,12 @@ function SearchResults({ url }) {
       try {
         doc = await init(url);
       } catch (err) {
-        console.log(
-          "SearchResults error initialising doc from ",
-          url,
-          ": ",
-          err
-        );
+        console.log("Homepage error initialising doc from ", url, ": ", err);
       }
       if (!doc) return;
       let data = null;
       try {
-        data = await scrapeQuizzesFromSearch(doc);
+        data = await scrapeQuizzesFromHomepage(doc);
       } catch (err) {
         console.log("Error scraping quizzes: ", err);
       }
@@ -4231,40 +4175,15 @@ function SearchResults({ url }) {
       setLoading(false);
     })();
   }, []);
-  if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading quizzes..." });
-  return /* @__PURE__ */ u$1(QuizList, { quizzes });
-}
-function TabsButton({ tab, selected, onSelect }) {
-  return /* @__PURE__ */ u$1(
-    "button",
-    {
-      className: `tabs-button ${selected ? "selected" : ""}`,
-      onClick: onSelect,
-      children: tab.name
-    }
-  );
-}
-function SearchTabsMenu() {
-  const { selected, setSelected, tabs } = useSearch();
-  return /* @__PURE__ */ u$1("div", { className: "tabs-menu", children: /* @__PURE__ */ u$1("ul", { className: "tabs-menu-list", children: tabs.map((tab) => /* @__PURE__ */ u$1("li", { className: "tabs-menu-list-item", children: /* @__PURE__ */ u$1(
-    TabsButton,
-    {
-      tab,
-      selected: selected.href === tab.href,
-      onSelect: () => setSelected(tab)
-    }
-  ) }, tab.href)) }) });
-}
-function SearchTabs() {
-  const { selected } = useSearch();
-  return /* @__PURE__ */ u$1(k$2, { children: [
-    /* @__PURE__ */ u$1(SearchTabsMenu, {}),
-    selected.name === "Quizzes" && /* @__PURE__ */ u$1(SearchResults, { url: "" })
+  if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading homepage..." });
+  return /* @__PURE__ */ u$1("main", { id: "homepage", className: "", children: [
+    /* @__PURE__ */ u$1(SporcleLink, { href: "/search", children: "Go to search" }),
+    /* @__PURE__ */ u$1(QuizList, { quizzes })
   ] });
 }
-function Search() {
-  return /* @__PURE__ */ u$1(SearchProvider, { children: /* @__PURE__ */ u$1(SearchTabs, {}) });
-}
+K(
+  void 0
+);
 function mount() {
   let container = document.getElementById("home");
   if (!container) {
@@ -4275,7 +4194,7 @@ function mount() {
   const style = document.createElement("script");
   style.src = "https://cdn.tailwindcss.com";
   document.head.appendChild(style);
-  E$1(/* @__PURE__ */ u$1(App, {}), container);
+  E$1(/* @__PURE__ */ u$1(Homepage, {}), container);
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", mount);
