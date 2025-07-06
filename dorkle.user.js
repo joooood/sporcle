@@ -4169,7 +4169,7 @@ async function scrapeQuizzesFromHomepage(doc) {
         title: ((_b = (_a = raw.querySelector(".icon-wrapper span")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
         desc: "Placeholder",
         href: ((_c = raw.querySelector(".link-wrapper")) == null ? void 0 : _c.getAttribute("href")) || "#",
-        category: ((_e = (_d = raw.querySelector(".label span.label-text")) == null ? void 0 : _d.textContent) == null ? void 0 : _e.trim()) || "Misc",
+        category: ((_e = (_d = raw.querySelector(".label span.label-text")) == null ? void 0 : _d.textContent) == null ? void 0 : _e.trim()) || "Gaming",
         author: {
           name: "Placeholder",
           href: "#"
