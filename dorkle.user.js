@@ -4176,6 +4176,7 @@ async function scrapeQuizzesFromHomepage(doc) {
         }
       };
     });
+    console.log(data[0]);
     quizzes.push(...data);
   } catch (err) {
     console.error("Failed to fetches quizzes from document: ", err);
