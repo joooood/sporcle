@@ -4162,11 +4162,11 @@ function QuizList({ quizzes }) {
 async function scrapeQuizzesFromHomepage(doc) {
   const quizzes = [];
   try {
-    let raws = [...doc.querySelectorAll("#staff-picks .quiz-link-with-image")];
+    let raws = [...doc.querySelectorAll(".quiz-link-with-image")];
     let data = raws.map((raw) => {
       var _a, _b, _c, _d, _e;
       return {
-        title: ((_b = (_a = raw.querySelector(".icon-wrapper span")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
+        title: ((_b = (_a = raw.querySelector(".icon-wrapper .name")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "Untitled",
         desc: "Placeholder",
         href: ((_c = raw.querySelector(".link-wrapper")) == null ? void 0 : _c.getAttribute("href")) || "#",
         category: ((_e = (_d = raw.querySelector(".label span.label-text")) == null ? void 0 : _d.textContent) == null ? void 0 : _e.trim()) || "Gaming",
