@@ -560,6 +560,9 @@ c$1(new x$1(), { shouldComponentUpdate: function(n2) {
 var E = function(n2) {
   return _("a", c$1({ onClick: W }, n2));
 };
+K(
+  void 0
+);
 var s = ["className", "activeClass", "activeClassName", "path"];
 function c(l2) {
   var c2 = l2.className, n2 = l2.activeClass, u2 = l2.activeClassName, i2 = l2.path, p2 = function(a2, t2) {
@@ -4181,9 +4184,6 @@ function Homepage() {
     /* @__PURE__ */ u$1(QuizList, { quizzes })
   ] });
 }
-K(
-  void 0
-);
 function mount() {
   let container = document.getElementById("home");
   if (!container) {
