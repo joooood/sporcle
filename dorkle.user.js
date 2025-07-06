@@ -4211,7 +4211,8 @@ function Homepage() {
   if (loading) return /* @__PURE__ */ u$1("div", { children: "Loading homepage..." });
   return /* @__PURE__ */ u$1("main", { id: "homepage", className: "", children: [
     /* @__PURE__ */ u$1(SporcleLink, { href: "/search", children: "Go to search" }),
-    /* @__PURE__ */ u$1(QuizList, { quizzes })
+    /* @__PURE__ */ u$1(QuizList, { quizzes }),
+    "This shows that the universe is healing!"
   ] });
 }
 function useSearch() {
